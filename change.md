@@ -16,11 +16,19 @@ import { withBase } from 'vitepress'
   </div>
   <div class="image-pair">
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/main-panel.png')" alt="AI Toolkit 全新样式主界面" width="1200" height="800" loading="lazy">
+      <img :src="withBase('/screenshots/main-panel.png')" alt="AI Toolkit 全新样式主界面" width="1410" height="800" loading="lazy">
       <figcaption>主界面升级为浅色玻璃拟态风格，工具卡片、侧边栏和状态展示更统一。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器新样式界面" width="1088" height="734" loading="lazy">
+      <img :src="withBase('/screenshots/mcp-panel.png')" alt="AI Toolkit MCP 服务器管理新样式界面" width="1410" height="800" loading="lazy">
+      <figcaption>MCP 服务器页展示搜索、统计标签和服务卡片，新版留白与阴影更柔和。</figcaption>
+    </figure>
+    <figure class="screen-frame">
+      <img :src="withBase('/screenshots/skills-panel.png')" alt="AI Toolkit Skills 管理新样式界面" width="1410" height="800" loading="lazy">
+      <figcaption>Skills 管理页展示批量同步状态、导入和添加技能入口。</figcaption>
+    </figure>
+    <figure class="screen-frame">
+      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器新样式界面" width="1410" height="800" loading="lazy">
       <figcaption>MCP 添加弹窗保留 JSON 粘贴、目标工具选择和连接测试流程。</figcaption>
     </figure>
   </div>

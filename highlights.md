@@ -38,12 +38,16 @@ AI Toolkit 的价值在于把“多工具共存”的复杂度压到一个稳定
   <p>AI Toolkit 不只展示配置，它还处理连接测试、后台检测、局部刷新、原子写入这类容易影响体验的细节。</p>
   <div class="image-pair">
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/scan-agents.png')" alt="AI Toolkit 扫描 Agent 工具界面" width="1088" height="734" loading="lazy">
-      <figcaption>自动检测已安装工具，新工具发现后可继续同步配置。</figcaption>
+      <img :src="withBase('/screenshots/mcp-panel.png')" alt="AI Toolkit MCP 服务器管理界面" width="1410" height="800" loading="lazy">
+      <figcaption>MCP 服务器列表、搜索、统计与目标工具同步状态集中展示。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器界面" width="1088" height="734" loading="lazy">
+      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器界面" width="1410" height="800" loading="lazy">
       <figcaption>JSON 粘贴、表单编辑和连接测试集中在同一流程里。</figcaption>
+    </figure>
+    <figure class="screen-frame">
+      <img :src="withBase('/screenshots/skills-panel.png')" alt="AI Toolkit Skills 管理界面" width="1410" height="800" loading="lazy">
+      <figcaption>Skills 列表、同步状态、导入和添加技能入口保持统一的浅色玻璃拟态风格。</figcaption>
     </figure>
   </div>
 </section>

@@ -15,7 +15,7 @@ import { withBase } from 'vitepress'
       class="hero-shot"
       :src="withBase('/screenshots/main-panel.png')"
       alt="AI Toolkit 主界面截图"
-      width="1200"
+      width="1410"
       height="800"
       fetchpriority="high"
     >
@@ -87,8 +87,8 @@ import { withBase } from 'vitepress'
       <img
         :src="withBase('/screenshots/add-server.png')"
         alt="AI Toolkit 添加 MCP 服务器界面"
-        width="1088"
-        height="734"
+        width="1410"
+        height="800"
         loading="lazy"
       >
     </figure>
