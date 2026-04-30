@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vitepress dev . --host 0.0.0.0",
+    "sync:changelog": "node scripts/sync-changelog.mjs",
     "build": "vitepress build .",
     "preview": "vitepress preview . --host 0.0.0.0"
   },

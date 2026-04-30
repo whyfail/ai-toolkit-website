@@ -5,6 +5,9 @@ on:
     branches:
       - main
   workflow_dispatch:
+  repository_dispatch:
+    types:
+      - ai-toolkit-release
 
 permissions:
   contents: read
@@ -31,6 +34,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Sync changelog from AI-Toolkit
+        run: npm run sync:changelog
 
       - name: Build with VitePress
         run: npm run build

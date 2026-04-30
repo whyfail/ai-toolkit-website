@@ -8,6 +8,8 @@ import { withBase } from 'vitepress'
 
 # Changelog
 
+<!-- Generated from https://raw.githubusercontent.com/whyfail/AI-Toolkit/main/CHANGELOG.md. Keep page chrome here; edit release notes in AI-Toolkit/CHANGELOG.md. -->
+
 <section class="release-gallery">
   <div>
     <p class="section-label">v1.5.0 visual refresh</p>
@@ -33,6 +35,27 @@ import { withBase } from 'vitepress'
     </figure>
   </div>
 </section>
+
+## v1.5.3 (2026-04-30)
+
+### 修复
+
+- **nvmd CLI 检测回归**：修复 `~/.nvmd/bin/*` shim 被误判为残留文件，导致生产环境中 Claude Code、Codex、OpenCode、Qwen Code、CodeBuddy 等本地已安装 CLI 显示为未安装的问题
+- **残留 shim 判断**：nvmd shim 现在会先执行 `--version` 验证，只有不可执行时才继续按残留 shim 处理
+
+## v1.5.2 (2026-04-30)
+
+### 修复
+
+- **生产环境 CLI 检测**：修复 macOS 生产包从 Finder/Dock 启动时无法继承终端 PATH，导致本地已安装 CLI 工具扫描不出来的问题
+- **工具路径兜底搜索**：增强 macOS/Linux/Windows 下的 CLI 路径查找，覆盖 nvm、mise、asdf、bun、pnpm、npm、cargo、scoop、WindowsApps 等常见安装位置
+
+## v1.5.1 (2026-04-30)
+
+### 文档
+
+- **README 界面预览**：更新 README 主界面截图，展示最新的玻璃拟态工具管理界面
+- **官方分享地址**：设置页分享入口改为复制官方站点地址，并同步更新 README 说明
 
 ## v1.5.0 (2026-04-30)
 
