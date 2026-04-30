@@ -1,13 +1,20 @@
 import { defineConfig } from 'vitepress'
 
+const base = process.env.VITEPRESS_BASE || '/'
+
 export default defineConfig({
   title: 'AI Toolkit',
   description: '通用 MCP Server 与 Skills 管理工具',
   lang: 'zh-CN',
-  base: process.env.VITEPRESS_BASE || '/',
+  base,
   cleanUrls: true,
   lastUpdated: true,
   appearance: true,
+  head: [
+    ['link', { rel: 'icon', type: 'image/png', href: `${base}icon.png` }],
+    ['link', { rel: 'apple-touch-icon', href: `${base}icon.png` }],
+    ['meta', { name: 'theme-color', content: '#0f766e' }],
+  ],
   markdown: {
     lineNumbers: true,
     theme: {
@@ -19,6 +26,7 @@ export default defineConfig({
     logo: '/icon.png',
     nav: [
       { text: '首页', link: '/' },
+      { text: '下载', link: '/download' },
       { text: '功能', link: '/features' },
       { text: '亮点', link: '/highlights' },
       { text: '更新文档', link: '/change' },

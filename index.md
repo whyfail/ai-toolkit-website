@@ -26,8 +26,8 @@ import { withBase } from 'vitepress'
       <h1 id="hero-title">AI Toolkit</h1>
       <p class="hero-subtitle">为 AI 编程工具准备的统一控制台。集中管理 MCP Server、Skills、工具安装更新与 Agent 启动，把散落在 JSON、TOML 和终端里的配置变成可见的工作流。</p>
       <div class="hero-actions" aria-label="主要操作">
-        <a class="action-primary" href="features">查看功能</a>
-        <a class="action-secondary" href="change">更新文档</a>
+        <a class="action-primary" href="download">立即下载</a>
+        <a class="action-secondary" href="features">查看功能</a>
         <a class="action-ghost" href="https://github.com/whyfail/AI-Toolkit" target="_blank" rel="noreferrer">GitHub</a>
       </div>
     </div>
@@ -113,12 +113,12 @@ import { withBase } from 'vitepress'
       <article>
         <span class="card-index">03</span>
         <h3>工具安装与更新</h3>
-        <p>自动检测工具版本和安装方式，提供安装向导、版本扫描、更新与卸载能力。</p>
+        <p>自动检测工具版本和安装方式，提供安装向导、官方文档入口、并发更新与卸载能力。</p>
       </article>
       <article>
         <span class="card-index">04</span>
-        <h3>Agent 快速启动</h3>
-        <p>从应用内启动 AI 工具，并在 macOS 与 Windows 上使用你偏好的终端。</p>
+        <h3>应用更新与分享</h3>
+        <p>启动时自动检查新版本，设置页可一键复制 GitHub 仓库地址，方便分享给其他开发者。</p>
       </article>
     </div>
   </section>
@@ -129,6 +129,9 @@ import { withBase } from 'vitepress'
       <h2 id="release-title">更新文档直接引用 change.md。</h2>
       <p>当前官网的更新页直接使用根目录 <code>change.md</code>。后续发布时只要同步这份文件，站点导航里的更新文档就会随之更新。</p>
     </div>
-    <a class="action-primary compact" href="change">查看更新文档</a>
+    <div class="release-actions">
+      <a class="action-primary compact" href="download">下载最新版</a>
+      <a class="action-secondary compact subtle" href="change">查看更新文档</a>
+    </div>
   </section>
 </main>

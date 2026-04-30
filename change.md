@@ -1,4 +1,49 @@
+---
+pageClass: product-doc release-doc
+---
+
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
 # Changelog
+
+<section class="release-gallery">
+  <div>
+    <p class="section-label">v1.5.0 visual refresh</p>
+    <h2>全新 Glassmorphism 界面预览</h2>
+    <p>AI Toolkit v1.5.0 对工具管理、MCP 服务器、Skills 管理、设置、关于、弹窗和侧边栏做了统一视觉升级。下方配图使用当前源仓库最新截图。</p>
+  </div>
+  <div class="image-pair">
+    <figure class="screen-frame">
+      <img :src="withBase('/screenshots/main-panel.png')" alt="AI Toolkit 全新样式主界面" width="1200" height="800" loading="lazy">
+      <figcaption>主界面升级为浅色玻璃拟态风格，工具卡片、侧边栏和状态展示更统一。</figcaption>
+    </figure>
+    <figure class="screen-frame">
+      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器新样式界面" width="1088" height="734" loading="lazy">
+      <figcaption>MCP 添加弹窗保留 JSON 粘贴、目标工具选择和连接测试流程。</figcaption>
+    </figure>
+  </div>
+</section>
+
+## v1.5.0 (2026-04-30)
+
+### 新功能
+
+- **启动自动检查更新**：应用首次打开时自动检查 GitHub Releases，新版本可用时弹出更新窗口，由用户决定是否下载安装
+- **工具使用文档入口**：工具管理卡片新增使用文档跳转按钮，覆盖 Qwen Code、Claude Code、Codex、Gemini CLI、OpenCode、Trae、Qoder、CodeBuddy 等工具
+- **分享入口**：设置页新增分享按钮，一键复制 GitHub 仓库地址，方便推荐给其他用户
+
+### 改进
+
+- **全局 Glassmorphism 视觉升级**：工具管理、MCP 服务器、Skills 管理、设置、关于、弹窗和侧边栏统一升级为玻璃拟态风格
+- **浅色主题固定**：移除主题切换功能，应用固定使用浅色主题，并将侧边栏品牌图标替换为软件 Logo
+- **并发工具更新状态**：工具管理支持多个工具同时更新，每个工具卡片独立展示更新中状态
+
+### 修复
+
+- **Windows 工具更新**：修复 Windows 下 npm 工具被误判为 Winget 导致更新失败的问题，优先使用工具自身更新命令
+- **Windows 错误输出清理**：过滤 Winget/npm 进度条和 ANSI 控制字符，避免错误 toast 被进度条内容刷屏
 
 ## v1.4.0 (2026-04-28)
 

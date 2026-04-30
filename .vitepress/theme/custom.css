@@ -259,6 +259,13 @@ a {
   flex: none;
 }
 
+.subtle {
+  border-color: var(--line-strong) !important;
+  background: color-mix(in srgb, var(--surface) 78%, transparent) !important;
+  color: var(--vp-c-text-1) !important;
+  box-shadow: none;
+}
+
 .hero-dock {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -498,6 +505,13 @@ a {
   max-width: 760px;
 }
 
+.release-actions,
+.download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .release-section code {
   border-radius: 6px;
   padding: 2px 6px;
@@ -547,6 +561,116 @@ a {
   padding-left: 20px;
   color: var(--vp-c-text-2);
   line-height: 1.78;
+}
+
+.download-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 28px;
+  align-items: stretch;
+  margin: 36px 0 10px;
+}
+
+.download-hero h2,
+.release-gallery h2 {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  color: var(--vp-c-text-1);
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.06;
+  letter-spacing: 0;
+}
+
+.download-panel,
+.notice-card,
+.install-steps article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 94%, transparent), color-mix(in srgb, var(--surface-2) 88%, transparent));
+  box-shadow: var(--shadow-sm);
+}
+
+.download-panel {
+  display: grid;
+  align-content: center;
+  gap: 12px;
+  padding: 22px;
+}
+
+.download-panel strong {
+  color: var(--vp-c-text-1);
+  font-size: 20px;
+}
+
+.download-panel span {
+  color: var(--vp-c-text-2);
+  line-height: 1.55;
+}
+
+.notice-grid,
+.install-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.notice-card,
+.install-steps article {
+  padding: 22px;
+}
+
+.notice-card.important {
+  border-top: 4px solid var(--rose);
+}
+
+.notice-card h3,
+.install-steps h3 {
+  margin: 0 0 10px;
+  color: var(--vp-c-text-1);
+  font-size: 21px;
+  letter-spacing: 0;
+}
+
+.notice-card p,
+.install-steps p {
+  margin: 0;
+  color: var(--vp-c-text-2);
+  line-height: 1.75;
+}
+
+.install-steps article {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.install-steps span {
+  color: var(--vp-c-text-3);
+  font-size: 13px;
+  font-weight: 780;
+}
+
+.install-steps pre {
+  overflow-x: auto;
+  margin: 8px 0 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+.install-steps pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.release-gallery {
+  margin: 28px 0 48px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 42px;
 }
 
 .path-list {
@@ -704,6 +828,18 @@ a {
 
   .release-section .compact {
     width: 100%;
+  }
+
+  .release-actions,
+  .download-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .download-hero,
+  .notice-grid,
+  .install-steps {
+    grid-template-columns: 1fr;
   }
 
   .mini-points div {
