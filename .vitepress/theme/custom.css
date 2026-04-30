@@ -493,30 +493,10 @@ a {
   margin: 0;
 }
 
-.release-section {
-  display: flex;
-  gap: 30px;
-  align-items: end;
-  justify-content: space-between;
-  border-top: 1px solid var(--line);
-}
-
-.release-section > div {
-  max-width: 760px;
-}
-
-.release-actions,
 .download-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-}
-
-.release-section code {
-  border-radius: 6px;
-  padding: 2px 6px;
-  background: color-mix(in srgb, var(--teal) 12%, transparent);
-  color: var(--vp-c-text-1);
 }
 
 .product-doc .VPDoc {
@@ -741,8 +721,7 @@ a {
 
   .hero-dock,
   .system-section,
-  .workflow-section,
-  .release-section {
+  .workflow-section {
     grid-template-columns: 1fr;
   }
 
@@ -821,16 +800,6 @@ a {
     font-size: 30px;
   }
 
-  .release-section {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .release-section .compact {
-    width: 100%;
-  }
-
-  .release-actions,
   .download-actions {
     flex-direction: column;
     align-items: stretch;

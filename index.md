@@ -123,15 +123,4 @@ import { withBase } from 'vitepress'
     </div>
   </section>
 
-  <section class="landing-section release-section" aria-labelledby="release-title">
-    <div>
-      <p class="section-label">Release notes</p>
-      <h2 id="release-title">更新文档直接引用 change.md。</h2>
-      <p>当前官网的更新页直接使用根目录 <code>change.md</code>。后续发布时只要同步这份文件，站点导航里的更新文档就会随之更新。</p>
-    </div>
-    <div class="release-actions">
-      <a class="action-primary compact" href="download">下载最新版</a>
-      <a class="action-secondary compact subtle" href="change">查看更新文档</a>
-    </div>
-  </section>
 </main>
