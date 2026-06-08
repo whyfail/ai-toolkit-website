@@ -11,8 +11,9 @@ export default defineConfig({
   lastUpdated: true,
   appearance: true,
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: `${base}icon.png` }],
-    ['link', { rel: 'apple-touch-icon', href: `${base}icon.png` }],
+    ['link', { rel: 'icon', href: `${base}favicon.ico` }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: `${base}icon-32.png` }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: `${base}icon-180.png` }],
     ['meta', { name: 'theme-color', content: '#0f766e' }],
   ],
   markdown: {
