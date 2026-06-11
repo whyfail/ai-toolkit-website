@@ -116,7 +116,7 @@ AI Toolkit 可以直接从应用内启动已安装的 AI 工具，并支持设�
   </article>
   <article class="feature-card">
     <h3>官方文档入口</h3>
-    <p>工具卡片提供官方文档跳转按钮，快速查看 Qwen Code、Claude Code、Codex、Gemini CLI 等工具用法。</p>
+    <p>工具卡片提供官方文档跳转按钮，快速查看 Qwen Code、Claude Code、Codex、Gemini CLI、TRAE IDE、Mimo Code 等工具用法。</p>
   </article>
   <article class="feature-card">
     <h3>并发更新与卸载</h3>
@@ -147,10 +147,13 @@ AI Toolkit 可以直接从应用内启动已安装的 AI 工具，并支持设�
   <div class="path-row"><strong>OpenCode</strong><code>~/.config/opencode/opencode.json</code></div>
   <div class="path-row"><strong>Qoder</strong><code>~/Library/Application Support/Qoder/SharedClientCache/mcp.json</code></div>
   <div class="path-row"><strong>Qoder CLI</strong><code>~/.qodercli/settings.json</code></div>
-  <div class="path-row"><strong>Trae</strong><code>~/Library/Application Support/Trae/User/mcp.json</code></div>
-  <div class="path-row"><strong>Trae CN</strong><code>~/Library/Application Support/Trae CN/User/mcp.json</code></div>
-  <div class="path-row"><strong>TRAE SOLO CN</strong><code>~/Library/Application Support/TRAE SOLO CN/User/mcp.json</code></div>
+  <div class="path-row"><strong>TRAE IDE</strong><code>~/Library/Application Support/Trae/User/mcp.json</code></div>
+  <div class="path-row"><strong>TRAE IDE CN</strong><code>~/Library/Application Support/Trae CN/User/mcp.json</code></div>
+  <div class="path-row"><strong>TRAE Work</strong><code>~/Library/Application Support/TRAE Work/User/mcp.json</code></div>
+  <div class="path-row"><strong>TRAE Work CN</strong><code>~/Library/Application Support/TRAE Work CN/User/mcp.json</code></div>
   <div class="path-row"><strong>CodeBuddy</strong><code>~/.codebuddy/mcp.json</code></div>
+  <div class="path-row"><strong>Hermes Agent</strong><code>~/.hermes/config.yaml</code></div>
+  <div class="path-row"><strong>Mimo Code</strong><code>~/.config/mimocode/mimocode.json</code></div>
 </div>
 
 ## 系统支持

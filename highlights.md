@@ -12,7 +12,7 @@ AI Toolkit 的价值在于把“多工具共存”的复杂度压到一个稳定
 
 <section class="doc-band">
   <h2>为多 Agent 工作流设计</h2>
-  <p>当开发者同时使用 Claude Code、Codex、Gemini CLI、Qwen Code 或 Trae 一类工具时，MCP Server 和 Skills 往往会被复制到不同目录。AI Toolkit 将这些重复动作统一为选择、同步和更新。</p>
+  <p>当开发者同时使用 Claude Code、Codex、Gemini CLI、Qwen Code、TRAE IDE、TRAE Work、Hermes Agent 或 Mimo Code 一类工具时，MCP Server 和 Skills 往往会被复制到不同目录。AI Toolkit 将这些重复动作统一为选择、同步和更新。</p>
   <div class="highlight-grid">
     <article class="highlight-card">
       <h3>一次配置，多处同步</h3>
@@ -53,8 +53,8 @@ AI Toolkit 的价值在于把“多工具共存”的复杂度压到一个稳定
 </section>
 
 <section class="doc-band">
-  <h2>近期更新聚焦视觉和更新体验</h2>
-  <p>v1.5.0 带来全局 Glassmorphism 视觉升级、启动自动检查更新、工具官方文档入口、并发工具更新状态和设置页分享入口。完整记录见更新文档。</p>
+  <h2>近期更新聚焦更多工具接入</h2>
+  <p>v1.6.1 新增 Mimo Code 支持，并按官网文档区分 TRAE IDE、TRAE IDE CN、TRAE Work、TRAE Work CN。批量同步弹窗也修复了内容过多时超出窗口的问题。完整记录见更新文档。</p>
   <div class="release-card">
     <h3>更新文档来自 change.md</h3>
     <p>站点导航中的“更新文档”直接指向根目录 <code>change.md</code>，发布时可以继续用这份文件作为唯一更新来源。</p>
