@@ -12,7 +12,7 @@ AI Toolkit 的价值在于把“多工具共存”的复杂度压到一个稳定
 
 <section class="doc-band">
   <h2>为多 Agent 工作流设计</h2>
-  <p>当开发者同时使用 Claude Code、Codex、Gemini CLI、Qwen Code、TRAE IDE、TRAE Work、Hermes Agent 或 Mimo Code 一类工具时，MCP Server 和 Skills 往往会被复制到不同目录。AI Toolkit 将这些重复动作统一为选择、同步和更新。</p>
+  <p>当开发者同时使用 Claude Code、Codex、Gemini CLI、Qwen Code、TRAE IDE、TRAE Work、Hermes Agent、Mimo Code 或 ZCode 一类工具时，MCP Server 和 Skills 往往会被复制到不同目录。AI Toolkit 将这些重复动作统一为选择、同步和更新。</p>
   <div class="highlight-grid">
     <article class="highlight-card">
       <h3>一次配置，多处同步</h3>

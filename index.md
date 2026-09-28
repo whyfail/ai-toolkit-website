@@ -55,7 +55,7 @@ import { withBase } from 'vitepress'
     <div class="section-copy">
       <p class="section-label">Designed for multi-agent workflows</p>
       <h2 id="system-title">让多个 AI CLI 共用同一套能力。</h2>
-      <p>AI Toolkit 面向经常在 Qwen Code、Claude Code、Codex、Gemini CLI、OpenCode、TRAE IDE、TRAE Work、Qoder、CodeBuddy、Hermes Agent、Mimo Code 等工具之间切换的开发者。它把工具检测、配置路径、Skills 同步和终端启动串成一条稳定路径。</p>
+      <p>AI Toolkit 面向经常在 Qwen Code、Claude Code、Codex、Gemini CLI、OpenCode、TRAE IDE、TRAE Work、Qoder、CodeBuddy、Hermes Agent、Mimo Code、ZCode 等工具之间切换的开发者。它把工具检测、配置路径、Skills 同步和终端启动串成一条稳定路径。</p>
     </div>
     <div class="tool-matrix" aria-label="支持的工具">
       <span>Qwen Code</span>
@@ -72,6 +72,7 @@ import { withBase } from 'vitepress'
       <span>CodeBuddy</span>
       <span>Hermes Agent</span>
       <span>Mimo Code</span>
+      <span>ZCode</span>
     </div>
   </section>
 
