@@ -154,6 +154,7 @@ AI Toolkit 可以直接从应用内启动已安装的 AI 工具，并支持设�
   <div class="path-row"><strong>CodeBuddy</strong><code>~/.codebuddy/mcp.json</code></div>
   <div class="path-row"><strong>Hermes Agent</strong><code>~/.hermes/config.yaml</code></div>
   <div class="path-row"><strong>Mimo Code</strong><code>~/.config/mimocode/mimocode.json</code></div>
+  <div class="path-row"><strong>WorkBuddy / WorkBuddy CN</strong><code>~/.workbuddy/.mcp.json</code></div>
   <div class="path-row"><strong>ZCode</strong><code>~/.zcode/cli/config.json</code></div>
 </div>
 

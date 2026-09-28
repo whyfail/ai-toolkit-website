@@ -12,25 +12,25 @@ import { withBase } from 'vitepress'
 
 <section class="release-gallery">
   <div>
-    <p class="section-label">v1.5.0 visual refresh</p>
-    <h2>全新 Glassmorphism 界面预览</h2>
-    <p>AI Toolkit v1.5.0 对工具管理、MCP 服务器、Skills 管理、设置、关于、弹窗和侧边栏做了统一视觉升级。下方配图使用当前源仓库最新截图。</p>
+    <p class="section-label">v1.7.0 visual refresh</p>
+    <h2>全新 Apple Design 界面预览</h2>
+    <p>AI Toolkit v1.7.0 按 Apple HIG 对工具管理、MCP 服务器、Skills 管理、设置、弹窗和侧边栏做了统一视觉重构，引入弹簧动效与液态玻璃材质，并新增暗色模式。下方配图展示当前版本界面。</p>
   </div>
   <div class="image-pair">
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/main-panel.png')" alt="AI Toolkit 全新样式主界面" width="1410" height="800" loading="lazy">
-      <figcaption>主界面升级为浅色玻璃拟态风格，工具卡片、侧边栏和状态展示更统一。</figcaption>
+      <img :src="withBase('/screenshots/main-panel.png')" alt="AI Toolkit 全新样式主界面" width="1410" height="940" loading="lazy">
+      <figcaption>主界面采用 Apple 风格材质与弹簧动效，工具卡片、侧边栏和状态展示更统一。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/mcp-panel.png')" alt="AI Toolkit MCP 服务器管理新样式界面" width="1410" height="800" loading="lazy">
+      <img :src="withBase('/screenshots/mcp-panel.png')" alt="AI Toolkit MCP 服务器管理新样式界面" width="1410" height="940" loading="lazy">
       <figcaption>MCP 服务器页展示搜索、统计标签和服务卡片，新版留白与阴影更柔和。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/skills-panel.png')" alt="AI Toolkit Skills 管理新样式界面" width="1410" height="800" loading="lazy">
+      <img :src="withBase('/screenshots/skills-panel.png')" alt="AI Toolkit Skills 管理新样式界面" width="1410" height="940" loading="lazy">
       <figcaption>Skills 管理页展示批量同步状态、导入和添加技能入口。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器新样式界面" width="1410" height="800" loading="lazy">
+      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器新样式界面" width="1410" height="940" loading="lazy">
       <figcaption>MCP 添加弹窗保留 JSON 粘贴、目标工具选择和连接测试流程。</figcaption>
     </figure>
   </div>
@@ -41,6 +41,55 @@ import { withBase } from 'vitepress'
 ### 新功能
 
 - **ZCode 接入**：新增 ZCode 工具卡，支持 `~/.zcode/cli/config.json`（嵌套 `mcp.servers`）的 MCP 配置导入与同步，stdio 与 http 条目按 ZCode 原生格式写入并保留其余配置字段；支持 `~/.zcode/skills` 技能同步；支持桌面应用（macOS `ZCode.app` / Windows）与 `zcode` CLI 双重安装检测和启动。
+
+## v1.8.0 (2026-08-25)
+
+### 新功能
+
+- **WorkBuddy 跨平台接入**：新增 WorkBuddy 国际版与国内版工具卡，支持 macOS 和 Windows 的 edition 识别、桌面启动、版本检测、官方更新入口、MCP 导入同步和 Skills 同步。
+
+### 改进
+
+- **WorkBuddy 共享数据保护**：两版共享 `~/.workbuddy` 配置目录、MCP 开关和 Skills 状态；同步与导入按规范化路径去重，切换 edition 时保留用户数据且不提供自动卸载。
+
+## v1.7.1 (2026-08-12)
+
+### 修复
+
+- **本地 Skill 文件被清空**：修复多个工具共享 Skills 目录时，并发同步可能将中央副本复制到自身并截断为 0 字节的问题。同步操作现在按真实目标路径串行执行，并在覆盖前阻止源目录与目标目录指向同一实体。
+- **本地 Skill 安装完整性**：本地导入现在要求 `SKILL.md` 非空，并校验源目录与中央目录内容哈希；复制或数据库写入失败时自动清理不完整副本。
+- **本地 Skill 元数据持久化**：本地安装成功后写入数据库，技能列表正确恢复来源和 description 信息。
+
+## v1.7.0 (2026-07-17)
+
+### 新功能
+
+- **Apple Design 视觉重构**:全站样式按 Apple HIG 与 WWDC *Designing Fluid Interfaces* 重做。引入 Motion 弹簧动效、液态玻璃材质、Pressable 按压反馈、Modal spring 入场、AnimatePresence 面板切换、layoutId 滑动指示器,以及 prefers-reduced-motion/transparency/contrast 全套 a11y 兜底。
+- **暗色模式**:设置页新增 light/dark/system 三段切换,跟随系统外观,实时生效。
+- **Settings 主题切换器**:暗色 / 跟随系统,持久化到 localStorage,所有 glass-* 材质已在 .dark 下补齐。
+- **Skill 详情 Hero**:从 SKILL.md frontmatter 解析 name + description,支持 YAML 多行块标量(`|` / `>`),并在 Hero 区单独展示,正文区自动剥离避免重复。
+- **ProgressBar / Copy 反馈回弹**:复制按钮按 `AnimatePresence` 在"复制官网地址"和"已复制 ✓"之间切换,持续 1.5s。
+
+### 改进
+
+- **后端 SKILL.md 解析**:Rust 端 `parse_skill_md_with_reason` 重写,支持 YAML literal/folded block(`description: | / >`)、缩进规范化、空行/注释跳过,标准化与 relaxed 模式统一解析。
+- **后端 description 持久化**:`install_git` / `install_git_selection` / `install_local_selection` 三条安装路径都把 SKILL.md 的 description 写入数据库,UI 不再永远显示空 description。
+- **Claude plugin skill 验证**:`is_skill_dir` 要求 `.claude/skills/*` 必须包含 `plugin.json` / `.claude-plugin/plugin.json` 等 manifest 文件,空目录不再被误判为合法 skill。
+- **Tauri 原生对话框**:全站移除 `window.alert / confirm / prompt`(Tauri webview 静默失败),改用 `@tauri-apps/plugin-dialog.ask` 与 toast 反馈;resolveNameConflict 兜底为"自动重命名 + toast.message",名字冲突不再静默跳过。
+- **Modal portal 渲染**:统一 `<Modal>` 组件改用 React Portal 渲染到 `document.body`,脱离 `.glass-content` 的 `mask-image` 裁剪上下文,避免被遮挡。
+- **侧边栏 nav 切换**:使用 `layoutId="sidebar-pill"` 实现 active 指示器在 6 个 nav 之间平滑滑动,不再硬切。
+- **面板切换**:`AnimatePresence mode="wait"` + spring,切换 Tools / Skills / MCP / Enhancements / Settings 时整体跨淡。
+- **Segmented controls**:Skills 筛选、AddSkillModal 三段 tab、Settings 主题切换、Enhancements 子面板切换,全部使用 Motion `layoutId` 滑动指示器。
+- **按钮按压反馈**:所有 Pressable `whileTap scale(0.97)` 弹簧,icon-button `scale(0.92)`,hover 仅做 brightness 微调(不再 hover 顶起)。
+- **Toast 自定义**:时长 3500ms,rounded-modal,半透明背景。
+- **Scroll edge effects**:scrollbar 缩窄到 6px,hover 才显形;`.glass-content` 用 mask-image 让滚动内容在边缘渐隐。
+- **Focus 焦点环**:Apple 风格 2px accent outline,键盘聚焦才显示。
+
+### 修复
+
+- **Git 安装空白 skill**:`git clone --filter=blob:none`(partial clone) 在网络抖动时会让 `std::fs::copy` 静默产生 0 字节目标文件,导致 SKILL.md 是空的。改用普通 `--depth=1`(无 filter),保证文件完整性;并在 copy 后做"中央目录空"校验,失败时显式报错而不是装出空白 skill。
+- **Modal 被遮挡**:`.glass-content` 的滚动 mask-image 会裁剪子元素,导致 Skill 详情 Modal 显示不全。Modal 改用 React Portal 渲染到 body,脱离父级容器。
+- **Skill 详情 modal 视觉粗糙**:Hero 区拆为大 icon + 标题 + 副描述 + 浮动 chip(metadata grid);SKILL.md 区域加 sticky 头部 + 完整 prose 样式;metadata 拆为独立 `<MetadataCell>` 卡片;健康检查 banner 分隔列表样式。
 
 ## v1.6.1 (2026-06-11)
 

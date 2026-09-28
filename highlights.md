@@ -12,7 +12,7 @@ AI Toolkit 的价值在于把“多工具共存”的复杂度压到一个稳定
 
 <section class="doc-band">
   <h2>为多 Agent 工作流设计</h2>
-  <p>当开发者同时使用 Claude Code、Codex、Gemini CLI、Qwen Code、TRAE IDE、TRAE Work、Hermes Agent、Mimo Code 或 ZCode 一类工具时，MCP Server 和 Skills 往往会被复制到不同目录。AI Toolkit 将这些重复动作统一为选择、同步和更新。</p>
+  <p>当开发者同时使用 Claude Code、Codex、Gemini CLI、Qwen Code、TRAE IDE、TRAE Work、Hermes Agent、Mimo Code、WorkBuddy 或 ZCode 一类工具时，MCP Server 和 Skills 往往会被复制到不同目录。AI Toolkit 将这些重复动作统一为选择、同步和更新。</p>
   <div class="highlight-grid">
     <article class="highlight-card">
       <h3>一次配置，多处同步</h3>
@@ -38,23 +38,23 @@ AI Toolkit 的价值在于把“多工具共存”的复杂度压到一个稳定
   <p>AI Toolkit 不只展示配置，它还处理连接测试、后台检测、局部刷新、原子写入这类容易影响体验的细节。</p>
   <div class="image-pair">
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/mcp-panel.png')" alt="AI Toolkit MCP 服务器管理界面" width="1410" height="800" loading="lazy">
+      <img :src="withBase('/screenshots/mcp-panel.png')" alt="AI Toolkit MCP 服务器管理界面" width="1410" height="940" loading="lazy">
       <figcaption>MCP 服务器列表、搜索、统计与目标工具同步状态集中展示。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器界面" width="1410" height="800" loading="lazy">
+      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器界面" width="1410" height="940" loading="lazy">
       <figcaption>JSON 粘贴、表单编辑和连接测试集中在同一流程里。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/skills-panel.png')" alt="AI Toolkit Skills 管理界面" width="1410" height="800" loading="lazy">
-      <figcaption>Skills 列表、同步状态、导入和添加技能入口保持统一的浅色玻璃拟态风格。</figcaption>
+      <img :src="withBase('/screenshots/skills-panel.png')" alt="AI Toolkit Skills 管理界面" width="1410" height="940" loading="lazy">
+      <figcaption>Skills 列表、同步状态、导入和添加技能入口保持统一的 Apple 风格设计。</figcaption>
     </figure>
   </div>
 </section>
 
 <section class="doc-band">
   <h2>近期更新聚焦更多工具接入</h2>
-  <p>v1.6.1 新增 Mimo Code 支持，并按官网文档区分 TRAE IDE、TRAE IDE CN、TRAE Work、TRAE Work CN。批量同步弹窗也修复了内容过多时超出窗口的问题。完整记录见更新文档。</p>
+  <p>v1.9.0 接入 ZCode，v1.8.0 新增 WorkBuddy 国际版与国内版，v1.7.0 完成全站 Apple Design 视觉重构并新增暗色模式。完整记录见更新文档。</p>
   <div class="release-card">
     <h3>更新文档来自 change.md</h3>
     <p>站点导航中的“更新文档”直接指向根目录 <code>change.md</code>，发布时可以继续用这份文件作为唯一更新来源。</p>

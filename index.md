@@ -16,7 +16,7 @@ import { withBase } from 'vitepress'
       :src="withBase('/screenshots/main-panel.png')"
       alt="AI Toolkit 主界面截图"
       width="1410"
-      height="800"
+      height="940"
       fetchpriority="high"
     >
     <div class="hero-scrim" aria-hidden="true"></div>
@@ -33,7 +33,7 @@ import { withBase } from 'vitepress'
     </div>
     <div class="hero-dock" aria-label="AI Toolkit 概览">
       <div>
-        <span>14</span>
+        <span>17</span>
         <strong>AI 编程工具</strong>
       </div>
       <div>
@@ -72,6 +72,8 @@ import { withBase } from 'vitepress'
       <span>CodeBuddy</span>
       <span>Hermes Agent</span>
       <span>Mimo Code</span>
+      <span>WorkBuddy</span>
+      <span>WorkBuddy CN</span>
       <span>ZCode</span>
     </div>
   </section>
@@ -92,7 +94,7 @@ import { withBase } from 'vitepress'
         :src="withBase('/screenshots/add-server.png')"
         alt="AI Toolkit 添加 MCP 服务器界面"
         width="1410"
-        height="800"
+        height="940"
         loading="lazy"
       >
     </figure>
