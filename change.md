@@ -12,29 +12,57 @@ import { withBase } from 'vitepress'
 
 <section class="release-gallery">
   <div>
-    <p class="section-label">v1.7.0 visual refresh</p>
-    <h2>全新 Apple Design 界面预览</h2>
-    <p>AI Toolkit v1.7.0 按 Apple HIG 对工具管理、MCP 服务器、Skills 管理、设置、弹窗和侧边栏做了统一视觉重构，引入弹簧动效与液态玻璃材质，并新增暗色模式。下方配图展示当前版本界面。</p>
+    <p class="section-label">v2.0.0 desktop screenshots</p>
+    <h2>Skills、MCP 与积分代理，集中在同一个桌面工作台</h2>
+    <p>AI Toolkit v2.0.0 提供 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。以下配图于 2026-10-15 从 macOS 实际窗口截取，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
   </div>
   <div class="image-pair">
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/main-panel.png')" alt="AI Toolkit 全新样式主界面" width="1410" height="940" loading="lazy">
-      <figcaption>主界面采用 Apple 风格材质与弹簧动效，工具卡片、侧边栏和状态展示更统一。</figcaption>
+      <img :src="withBase('/screenshots/main-panel.png')" alt="AI Toolkit Skills 管理主界面" width="1800" height="1200" loading="lazy">
+      <figcaption>Skills 管理页展示来源筛选、批量同步与目标工具状态。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/mcp-panel.png')" alt="AI Toolkit MCP 服务器管理新样式界面" width="1410" height="940" loading="lazy">
-      <figcaption>MCP 服务器页展示搜索、统计标签和服务卡片，新版留白与阴影更柔和。</figcaption>
+      <img :src="withBase('/screenshots/mcp-panel.png')" alt="AI Toolkit MCP 服务器管理界面" width="1800" height="1200" loading="lazy">
+      <figcaption>MCP 服务器页展示搜索、工具统计与启用状态。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/skills-panel.png')" alt="AI Toolkit Skills 管理新样式界面" width="1410" height="940" loading="lazy">
-      <figcaption>Skills 管理页展示批量同步状态、导入和添加技能入口。</figcaption>
+      <img :src="withBase('/screenshots/credits-panel.png')" alt="账户与积分界面，账号身份信息已打码" width="1800" height="1200" loading="lazy">
+      <figcaption>分别查看 WorkBuddy、TRAE CN、Qoder 的原生额度与领取状态。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器新样式界面" width="1410" height="940" loading="lazy">
-      <figcaption>MCP 添加弹窗保留 JSON 粘贴、目标工具选择和连接测试流程。</figcaption>
+      <img :src="withBase('/screenshots/proxy-panel.png')" alt="本地模型代理连接参数" width="1800" height="1200" loading="lazy">
+      <figcaption>复制连接参数，使用 OpenAI 或 Anthropic 协议接入客户端。</figcaption>
+    </figure>
+    <figure class="screen-frame">
+      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器界面" width="1800" height="1200" loading="lazy">
+      <figcaption>添加弹窗展示内置 JSON 示例与目标工具选择。</figcaption>
+    </figure>
+    <figure class="screen-frame">
+      <img :src="withBase('/screenshots/settings-panel.png')" alt="AI Toolkit 设置界面" width="1800" height="1200" loading="lazy">
+      <figcaption>设置页集中提供外观切换、软件更新与官网分享。</figcaption>
     </figure>
   </div>
 </section>
+
+## v2.0.0 (2026-10-15)
+
+### 新功能
+
+- **积分与模型代理**：新增「积分与代理」面板，统一管理 WorkBuddy、TRAE CN、Qoder 账户的积分与本地模型代理。支持官方授权入口与已有 Token/凭据 JSON 导入，凭据保存到系统钥匙串/凭据管理器；一键检查并领取可用积分，自动领取默认关闭，开启后仅在应用运行期间按北京时间每天 10:30 检查并领取；本地网关提供兼容 OpenAI Chat Completions 与 Anthropic Messages 的服务，默认地址 `http://127.0.0.1:17860/v1`，带平台前缀的模型 ID 指定账户目录模型。详见 [积分与模型代理说明](https://github.com/whyfail/AI-Toolkit/blob/main/docs/credits-proxy.md)。
+- **TRAE CN 一键导入本机凭据**：优先读取新版桌面应用的个人登录态，未找到时兼容 CLI 钥匙串凭据；导入后验证身份并同步积分，失败时保留弹窗并显示实际原因。
+- **Qoder 每日积分领取**：账户卡片与「一键领取积分」直接调用官方每日 100 Credits 活动接口；本机装有官方设备校验助手时无界面读取设备凭据，不伪造设备令牌；领取结果逐项记录，超时或状态不明确时只回查、不重复提交。
+- **界面重构**：应用精简为 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板；工具安装状态检测保留，继续作为 MCP 与 Skills 同步目标的判定依据。
+- **桌面运行时守卫**：在浏览器中打开页面时显示「请在桌面应用中打开」提示，本地开发需通过 `pnpm tauri:dev` 启动桌面窗口。
+
+### 移除
+
+- **工具管理面板**：移除独立的工具安装向导、版本检测、并发更新、卸载与一键启动界面；相关检测能力保留在后端。
+- **增强中心**：移除配置快照、健康检查、压缩包导入导出、任务日志与 Agent 启动预设界面。
+
+### 改进
+
+- **macOS 钥匙串授权策略**：启动、后台刷新、自动领取和代理请求不再触发钥匙串授权弹窗；共享凭据条目只授权一次，旧版本分块凭据静默迁移，需要授权时返回明确错误，授权失败不回退明文存储。
+- **代理账号调度**：`workbuddy/`、`traework/`、`qoder/` 前缀固定来源平台；已验证的通用别名在支持同一型号的账号间调度，优先使用即将到期的积分，不同 GLM 版本不合并。
 
 ## v1.9.0 (2026-09-28)
 

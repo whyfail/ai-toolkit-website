@@ -4,7 +4,7 @@ const base = process.env.VITEPRESS_BASE || '/'
 
 export default defineConfig({
   title: 'AI Toolkit',
-  description: '通用 MCP Server 与 Skills 管理工具',
+  description: '统一管理 AI 编程工具的 MCP、Skills、平台积分与本地模型代理',
   lang: 'zh-CN',
   base,
   cleanUrls: true,

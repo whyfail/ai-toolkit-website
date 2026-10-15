@@ -16,7 +16,10 @@ let changelog = await response.text()
 changelog = changelog.replace(/^\uFEFF/, '').trim()
 changelog = changelog.replace(/^---[\s\S]*?---\s*/, '').trim()
 
-const body = changelog.replace(/^#\s+Changelog\s*/i, '').trimStart()
+const body = changelog
+  .replace(/^#\s+Changelog\s*/i, '')
+  .trimStart()
+  .replace(/\]\((docs\/[^)\s]+)\)/g, (_, path) => `](https://github.com/whyfail/AI-Toolkit/blob/main/${path})`)
 
 const page = `---
 pageClass: product-doc release-doc
@@ -32,26 +35,34 @@ import { withBase } from 'vitepress'
 
 <section class="release-gallery">
   <div>
-    <p class="section-label">v1.5.0 visual refresh</p>
-    <h2>全新 Glassmorphism 界面预览</h2>
-    <p>AI Toolkit v1.5.0 对工具管理、MCP 服务器、Skills 管理、设置、关于、弹窗和侧边栏做了统一视觉升级。下方配图使用当前源仓库最新截图。</p>
+    <p class="section-label">v2.0.0 desktop screenshots</p>
+    <h2>Skills、MCP 与积分代理，集中在同一个桌面工作台</h2>
+    <p>AI Toolkit v2.0.0 提供 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。以下配图于 2026-10-15 从 macOS 实际窗口截取，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
   </div>
   <div class="image-pair">
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/main-panel.png')" alt="AI Toolkit 全新样式主界面" width="1410" height="800" loading="lazy">
-      <figcaption>主界面升级为浅色玻璃拟态风格，工具卡片、侧边栏和状态展示更统一。</figcaption>
+      <img :src="withBase('/screenshots/main-panel.png')" alt="AI Toolkit Skills 管理主界面" width="1800" height="1200" loading="lazy">
+      <figcaption>Skills 管理页展示来源筛选、批量同步与目标工具状态。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/mcp-panel.png')" alt="AI Toolkit MCP 服务器管理新样式界面" width="1410" height="800" loading="lazy">
-      <figcaption>MCP 服务器页展示搜索、统计标签和服务卡片，新版留白与阴影更柔和。</figcaption>
+      <img :src="withBase('/screenshots/mcp-panel.png')" alt="AI Toolkit MCP 服务器管理界面" width="1800" height="1200" loading="lazy">
+      <figcaption>MCP 服务器页展示搜索、工具统计与启用状态。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/skills-panel.png')" alt="AI Toolkit Skills 管理新样式界面" width="1410" height="800" loading="lazy">
-      <figcaption>Skills 管理页展示批量同步状态、导入和添加技能入口。</figcaption>
+      <img :src="withBase('/screenshots/credits-panel.png')" alt="账户与积分界面，账号身份信息已打码" width="1800" height="1200" loading="lazy">
+      <figcaption>分别查看 WorkBuddy、TRAE CN、Qoder 的原生额度与领取状态。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器新样式界面" width="1410" height="800" loading="lazy">
-      <figcaption>MCP 添加弹窗保留 JSON 粘贴、目标工具选择和连接测试流程。</figcaption>
+      <img :src="withBase('/screenshots/proxy-panel.png')" alt="本地模型代理连接参数" width="1800" height="1200" loading="lazy">
+      <figcaption>复制连接参数，使用 OpenAI 或 Anthropic 协议接入客户端。</figcaption>
+    </figure>
+    <figure class="screen-frame">
+      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器界面" width="1800" height="1200" loading="lazy">
+      <figcaption>添加弹窗展示内置 JSON 示例与目标工具选择。</figcaption>
+    </figure>
+    <figure class="screen-frame">
+      <img :src="withBase('/screenshots/settings-panel.png')" alt="AI Toolkit 设置界面" width="1800" height="1200" loading="lazy">
+      <figcaption>设置页集中提供外观切换、软件更新与官网分享。</figcaption>
     </figure>
   </div>
 </section>

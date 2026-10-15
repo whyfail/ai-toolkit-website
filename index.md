@@ -2,7 +2,7 @@
 layout: page
 pageClass: landing-page
 title: AI Toolkit
-description: 通用 MCP Server 与 Skills 管理工具
+description: 统一管理 AI 编程工具的 MCP、Skills、平台积分与本地模型代理
 ---
 
 <script setup>
@@ -14,9 +14,9 @@ import { withBase } from 'vitepress'
     <img
       class="hero-shot"
       :src="withBase('/screenshots/main-panel.png')"
-      alt="AI Toolkit 主界面截图"
-      width="1410"
-      height="940"
+      alt="AI Toolkit v2.0.0 Skills 管理主界面实机截图"
+      width="1800"
+      height="1200"
       fetchpriority="high"
     >
     <div class="hero-scrim" aria-hidden="true"></div>
@@ -24,7 +24,7 @@ import { withBase } from 'vitepress'
     <div class="hero-content">
       <p class="eyebrow">Universal MCP & Skills Manager</p>
       <h1 id="hero-title">AI Toolkit</h1>
-      <p class="hero-subtitle">为 AI 编程工具准备的统一控制台。集中管理 MCP Server、Skills、工具安装更新与 Agent 启动，把散落在 JSON、TOML 和终端里的配置变成可见的工作流。</p>
+      <p class="hero-subtitle">为 AI 编程工具准备的统一控制台。集中管理 MCP Server、Skills、平台积分与本地模型代理，把散落在 JSON、TOML 和终端里的配置变成可见的工作流。</p>
       <div class="hero-actions" aria-label="主要操作">
         <a class="action-primary" href="download">立即下载</a>
         <a class="action-secondary" href="features">查看功能</a>
@@ -33,7 +33,7 @@ import { withBase } from 'vitepress'
     </div>
     <div class="hero-dock" aria-label="AI Toolkit 概览">
       <div>
-        <span>17</span>
+        <span>24</span>
         <strong>AI 编程工具</strong>
       </div>
       <div>
@@ -45,8 +45,8 @@ import { withBase } from 'vitepress'
         <strong>安装、同步、更新</strong>
       </div>
       <div>
-        <span>Tauri 2</span>
-        <strong>跨平台桌面应用</strong>
+        <span>代理</span>
+        <strong>积分与本地模型网关</strong>
       </div>
     </div>
   </section>
@@ -55,7 +55,7 @@ import { withBase } from 'vitepress'
     <div class="section-copy">
       <p class="section-label">Designed for multi-agent workflows</p>
       <h2 id="system-title">让多个 AI CLI 共用同一套能力。</h2>
-      <p>AI Toolkit 面向经常在 Qwen Code、Claude Code、Codex、Gemini CLI、OpenCode、TRAE IDE、TRAE Work、Qoder、CodeBuddy、Hermes Agent、Mimo Code、ZCode 等工具之间切换的开发者。它把工具检测、配置路径、Skills 同步和终端启动串成一条稳定路径。</p>
+      <p>AI Toolkit 面向经常在 Qwen Code、Claude Code、Codex、Gemini CLI、OpenCode、TRAE、TRAE CN、Qoder、CodeBuddy、Hermes Agent、Mimo Code、ZCode 等工具之间切换的开发者。它把工具检测、配置路径和 Skills 同步串成一条稳定路径，并用积分面板连接 WorkBuddy、TRAE CN、Qoder 平台额度。</p>
     </div>
     <div class="tool-matrix" aria-label="支持的工具">
       <span>Qwen Code</span>
@@ -63,18 +63,25 @@ import { withBase } from 'vitepress'
       <span>OpenAI Codex</span>
       <span>Gemini CLI</span>
       <span>OpenCode</span>
-      <span>TRAE IDE</span>
-      <span>TRAE IDE CN</span>
-      <span>TRAE Work</span>
-      <span>TRAE Work CN</span>
+      <span>TRAE</span>
+      <span>TRAE CN</span>
       <span>Qoder</span>
       <span>Qoder CLI</span>
       <span>CodeBuddy</span>
       <span>Hermes Agent</span>
       <span>Mimo Code</span>
-      <span>WorkBuddy</span>
-      <span>WorkBuddy CN</span>
+      <span>Kimi Code</span>
+      <span>MiniMax Code</span>
+      <span>WorkBuddy / WorkBuddy CN</span>
       <span>ZCode</span>
+      <span>Cursor</span>
+      <span>Windsurf</span>
+      <span>Cline</span>
+      <span>Roo Code</span>
+      <span>Kilo Code</span>
+      <span>Continue</span>
+      <span>Goose</span>
+      <span>Kiro</span>
     </div>
   </section>
 
@@ -86,15 +93,15 @@ import { withBase } from 'vitepress'
       <div class="mini-points">
         <div><strong>少改文件</strong><span>自动识别配置路径，减少手工编辑 JSON/TOML。</span></div>
         <div><strong>同步更稳</strong><span>开关状态实时写入，并通过临时文件保护配置。</span></div>
-        <div><strong>启动更快</strong><span>应用内直接启动 Agent，保留终端偏好。</span></div>
+        <div><strong>代理直达</strong><span>本地网关暴露 OpenAI 与 Anthropic 协议，客户端直接接入平台模型。</span></div>
       </div>
     </div>
     <figure class="product-frame">
       <img
         :src="withBase('/screenshots/add-server.png')"
         alt="AI Toolkit 添加 MCP 服务器界面"
-        width="1410"
-        height="940"
+        width="1800"
+        height="1200"
         loading="lazy"
       >
     </figure>
@@ -118,13 +125,13 @@ import { withBase } from 'vitepress'
       </article>
       <article>
         <span class="card-index">03</span>
-        <h3>工具安装与更新</h3>
-        <p>自动检测工具版本和安装方式，提供安装向导、官方文档入口、并发更新与卸载能力。</p>
+        <h3>积分与模型代理</h3>
+        <p>连接 WorkBuddy、TRAE CN、Qoder 账户查看并领取积分，本地网关以 OpenAI 与 Anthropic 协议提供平台模型。</p>
       </article>
       <article>
         <span class="card-index">04</span>
         <h3>应用更新与分享</h3>
-        <p>启动时自动检查新版本，设置页可一键复制 GitHub 仓库地址，方便分享给其他开发者。</p>
+        <p>启动时自动检查新版本，设置页可一键复制官网地址，方便分享给其他开发者。</p>
       </article>
     </div>
   </section>

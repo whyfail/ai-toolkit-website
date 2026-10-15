@@ -6,6 +6,8 @@ pageClass: product-doc download-page
 
 AI Toolkit 当前通过 GitHub Releases 分发安装包。下载前请先看完下方注意事项，尤其是 macOS 未签名应用的首次运行授权步骤。
 
+当前源码构建的 macOS 应用名为 `AiToolkit.app`，旧版安装包使用 `AI Toolkit.app`。请以下载包中的实际名称为准；下方命令使用当前名称，旧版需替换路径中的应用名。
+
 <section class="download-hero">
   <div>
     <p class="section-label">Latest release</p>
@@ -51,13 +53,13 @@ AI Toolkit 当前通过 GitHub Releases 分发安装包。下载前请先看完�
   <article>
     <span>01</span>
     <h3>拖入 Applications</h3>
-    <p>下载并打开 <code>.dmg</code> 后，将 <code>AI Toolkit.app</code> 拖入 <code>/Applications</code>。</p>
+    <p>下载并打开 <code>.dmg</code> 后，将 <code>AiToolkit.app</code>（旧版为 <code>AI Toolkit.app</code>）拖入 <code>/Applications</code>。</p>
   </article>
   <article>
     <span>02</span>
     <h3>执行授权命令</h3>
     <p>打开终端，执行下方命令清理 macOS 隔离属性。</p>
-    <pre><code>sudo xattr -cr "/Applications/AI Toolkit.app"</code></pre>
+    <pre><code>sudo xattr -cr "/Applications/AiToolkit.app"</code></pre>
   </article>
   <article>
     <span>03</span>
@@ -70,7 +72,7 @@ AI Toolkit 当前通过 GitHub Releases 分发安装包。下载前请先看完�
 
 | 方式 | 操作 |
 | --- | --- |
-| 右键打开 | 在访达中右键或按住 `Control` 点击 `AI Toolkit.app`，选择“打开”，再在系统警告框中确认“打开”。 |
+| 右键打开 | 在访达中右键或按住 `Control` 点击 `AiToolkit.app`（旧版为 `AI Toolkit.app`），选择“打开”，再在系统警告框中确认“打开”。 |
 | 系统设置放行 | 打开“系统设置” → “隐私与安全性”，找到 AI Toolkit 被阻止的提示，点击“仍要打开”。 |
 | Windows SmartScreen | 如果 Windows 出现 SmartScreen 提示，请确认来源为官方 GitHub Release 后，再选择继续运行。 |
 
