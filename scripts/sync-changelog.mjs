@@ -21,6 +21,11 @@ const body = changelog
   .trimStart()
   .replace(/\]\((docs\/[^)\s]+)\)/g, (_, path) => `](https://github.com/whyfail/AI-Toolkit/blob/main/${path})`)
 
+const latestVersion = body.match(/^##\s+(v\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?)/m)?.[1]
+if (!latestVersion) {
+  throw new Error('Changelog does not contain a release version')
+}
+
 const page = `---
 pageClass: product-doc release-doc
 ---
@@ -35,9 +40,9 @@ import { withBase } from 'vitepress'
 
 <section class="release-gallery">
   <div>
-    <p class="section-label">v2.0.0 desktop screenshots</p>
+    <p class="section-label">${latestVersion} release notes</p>
     <h2>Skills、MCP 与积分代理，集中在同一个桌面工作台</h2>
-    <p>AI Toolkit v2.0.0 提供 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。以下配图于 2026-10-15 从 macOS 实际窗口截取，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
+    <p>当前版本 ${latestVersion}，提供 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
   </div>
   <div class="image-pair">
     <figure class="screen-frame">

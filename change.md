@@ -12,9 +12,9 @@ import { withBase } from 'vitepress'
 
 <section class="release-gallery">
   <div>
-    <p class="section-label">v2.0.0 desktop screenshots</p>
+    <p class="section-label">v2.1.0 release notes</p>
     <h2>Skills、MCP 与积分代理，集中在同一个桌面工作台</h2>
-    <p>AI Toolkit v2.0.0 提供 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。以下配图于 2026-10-15 从 macOS 实际窗口截取，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
+    <p>当前版本 v2.1.0，提供 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
   </div>
   <div class="image-pair">
     <figure class="screen-frame">
@@ -43,6 +43,54 @@ import { withBase } from 'vitepress'
     </figure>
   </div>
 </section>
+
+## v2.1.0 (2026-10-16)
+
+### 修复
+
+- **长会话图片历史**：OpenAI Chat Completions 与 Anthropic Messages 的请求正文上限统一为 32 MiB，支持超过原 4 MiB 限制的图片与工具历史；正文超限返回 HTTP 413，JSON 无效返回 HTTP 400，Content-Type 错误返回 HTTP 415，入口错误不再混为模型图片能力问题。
+- **思考历史兼容**：ZCode 的无签名或空签名 `assistant.thinking` 转为独立的 `reasoning_content`，按顺序保留思考、正文和工具调用；带非空签名或加密的 Anthropic 思考块仍明确拒绝。
+- **系统版本显示**：界面初始版本从 `package.json` 读取，并继续使用桌面端版本结果，避免加载期间显示旧的固定版本号。
+
+### 安全加固
+
+- **Skills 路径与替换**：统一校验技能名称、来源子路径、目录归属和同步身份；防止越界链接被扫描或操作，替换失败恢复旧目录，并保留无法清理的备份位置。
+- **WebView 与 OAuth**：只允许可信应用来源导航，拒绝新窗口并用系统浏览器打开外链；授权流程加强 state、PKCE、回环请求头、Host、方法与重复参数校验。
+- **私有存储与资源预算**：Git 缓存迁移至用户私有目录，校验来源并加锁更新；数据库和缓存使用受限权限；Git 子进程、下载、扫描、复制与哈希增加时间和资源上限。
+- **依赖与签名环境**：更新 Tauri、Vite、PostCSS 和相关传递依赖；前端仅暴露 `VITE_` 环境变量，CI Rust 测试固定使用锁文件。完整验证范围及剩余依赖事项见 [安全加固记录](https://github.com/whyfail/AI-Toolkit/blob/main/docs/security-hardening.md)。
+
+### 发布构建
+
+- Windows 构建使用 Tauri 2 支持的 MSI 目标并按原生命令退出码判断结果，更新产物由 `createUpdaterArtifacts` 生成；同步手动构建的默认版本与 Release 功能说明。
+
+### 文档
+
+- 同步中英文 README、官网说明及应用配置至 v2.1.0，补充长会话、图片历史、资源预算和安全加固说明；保留历史发布记录与实机截图的原始版本标注。
+
+## v2.0.2 (2026-10-15)
+
+### 修复
+
+- **代理图片输入**：OpenAI Chat Completions 与 Anthropic Messages 接口支持用户图片附件及工具返回的截图，兼容 base64 和 HTTP(S) 图片源；WorkBuddy、TRAE CN、Qoder 共用图片转换与校验，保留图文顺序、工具调用 ID 和错误标记，修复 ZCode 携带图片时被代理以 HTTP 400 拒绝的问题。
+- **Qoder 视觉请求**：补齐原生多模态请求格式与视觉路由配置，支持纯图片消息及工具截图。
+
+### 文档
+
+- 补充 ZCode 图片能力设置、支持的图片格式、请求大小限制及三平台验证范围说明。
+
+## v2.0.1 (2026-10-15)
+
+### 修复
+
+- **macOS 托盘常驻**：关闭主窗口后隐藏 Dock 图标，仅保留顶部菜单栏图标，已开启的代理和后台任务继续运行；从菜单栏或再次启动应用恢复窗口时，重新显示 Dock 图标。
+
+### 改进
+
+- **应用命名**：统一应用包名、窗口标题和发布名称为 AiToolkit。
+
+### 文档
+
+- 更新中英文使用指南、积分与模型代理说明及脱敏截图，补充 macOS 菜单栏与 Dock 的显示行为。
 
 ## v2.0.0 (2026-10-15)
 

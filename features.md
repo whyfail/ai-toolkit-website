@@ -10,7 +10,14 @@ import { withBase } from 'vitepress'
 
 AI Toolkit 是面向 AI 编程工具重度用户的桌面管理器，将 MCP、Skills、已安装工具检测以及平台积分与本地模型代理集中管理。
 
-当前版本包含 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。以下为 2026-10-15 截取的 macOS v2.0.0 实机界面，昵称、账号 ID 等敏感信息已打码。
+当前版本 **v2.1.0** 包含 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。配图保留 2026-10-15 截取的 macOS v2.0.0 实机界面，昵称、账号 ID 等敏感信息已打码。
+
+## v2.1.0 更新
+
+- 两种模型代理协议支持 32 MiB 请求正文，兼容较长的图片与工具历史，并保留无签名思考内容；超限、JSON 和 Content-Type 错误分别返回明确状态。
+- Skills 安装、更新、同步、重命名与删除统一校验名称、目录归属和来源身份，替换失败恢复旧内容，Git 缓存与文件处理增加资源预算。
+- WebView 限制可信来源导航，外链交由系统浏览器；OAuth 加强 state、PKCE 与回环请求校验，数据库与缓存使用受限文件权限。
+- 更新 Tauri、Vite、PostCSS 等依赖，前端构建不再暴露原生签名环境变量。验证范围和剩余事项见 [安全加固记录](https://github.com/whyfail/AI-Toolkit/blob/main/docs/security-hardening.md)。
 
 ## MCP 服务器管理
 

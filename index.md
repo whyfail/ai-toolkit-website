@@ -40,11 +40,11 @@ const tools = [
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-glow" aria-hidden="true"></div>
     <div class="hero-grid-bg" aria-hidden="true"></div>
-    <p class="hero-badge">MCP · SKILLS · 积分 · 模型代理</p>
+    <p class="hero-badge">v2.1.0 · MCP · SKILLS · 积分 · 模型代理</p>
     <img class="hero-logo" :src="withBase('/icon.png')" alt="AI Toolkit 图标" width="88" height="88">
     <h1 id="hero-title">AI Toolkit</h1>
     <p class="hero-tagline">为 AI 编程工具准备的统一控制台</p>
-    <p class="hero-desc">集中管理 24 款 AI 编程工具的 MCP Server、Skills 技能、平台积分与本地模型代理，把散落在 JSON、TOML 和终端里的配置变成可见的工作流。</p>
+    <p class="hero-desc">集中管理 24 款 AI 编程工具的 MCP Server、Skills 技能、平台积分与本地模型代理。v2.1.0 加强技能目录、桌面导航与授权边界，并支持 32 MiB 长会话图片历史。</p>
     <div class="hero-actions" aria-label="主要操作">
       <a class="action-primary" :href="withBase('download')">立即下载</a>
       <a class="action-secondary" :href="withBase('features')">查看功能</a>
@@ -66,8 +66,8 @@ const tools = [
       <span class="stat-label">平台积分查询与一键领取</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num">0</span>
-      <span class="stat-label">配置与凭据离开本机</span>
+      <span class="stat-num">本地</span>
+      <span class="stat-label">配置集中存储，凭据使用系统凭据库</span>
     </div>
   </section>
 
@@ -139,7 +139,7 @@ const tools = [
       <div class="mini-points">
         <div><strong>多平台账户</strong><span>官方授权入口或凭据 JSON 导入，凭据保存在系统凭据库。</span></div>
         <div><strong>一键领取</strong><span>批量检查并领取可用积分，可选每日定时，结果逐项记录。</span></div>
-        <div><strong>本地模型代理</strong><span>127.0.0.1:17860/v1 同时提供 OpenAI 与 Anthropic 协议，连接参数复制即用。</span></div>
+        <div><strong>本地模型代理</strong><span>127.0.0.1:17860/v1 提供 OpenAI 与 Anthropic 协议，支持 32 MiB 请求和图片、工具历史。</span></div>
       </div>
     </div>
     <figure class="product-frame">
