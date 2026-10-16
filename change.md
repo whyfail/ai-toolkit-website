@@ -12,9 +12,9 @@ import { withBase } from 'vitepress'
 
 <section class="release-gallery">
   <div>
-    <p class="section-label">v2.1.0 release notes</p>
+    <p class="section-label">v2.1.1 release notes</p>
     <h2>Skills、MCP 与积分代理，集中在同一个桌面工作台</h2>
-    <p>当前版本 v2.1.0，提供 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
+    <p>当前版本 v2.1.1，提供 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
   </div>
   <div class="image-pair">
     <figure class="screen-frame">
@@ -43,6 +43,21 @@ import { withBase } from 'vitepress'
     </figure>
   </div>
 </section>
+
+## v2.1.1 (2026-10-16)
+
+### 修复
+
+- **TRAE 工具流 ID**：后续参数分片携带空字符串或 `null` 的 `id` 时，保留先前的真实工具调用 ID，避免 JSON 聚合和 Anthropic Messages SSE 输出丢失调用标识；并行工具调用与延后到达的 ID 均有回归覆盖。全程缺少 ID 或参数无效的调用仍返回明确错误，不生成替代 ID。
+- **热门 Skills 来源**：改用 skills.sh 累计安装榜前 20 项，展示真实安装量，来源和技能标识组成唯一项；校验响应格式、仓库来源与 2 MiB 正文上限。
+
+### 改进
+
+- 添加技能弹窗仅在打开在线页时启用热门请求，复用查询缓存；加载失败显示具体原因并支持重试，合法空列表、加载中与失败分别展示。
+
+### 文档
+
+- 应用配置、Rust 锁文件、中英文 README、积分与代理说明和官网同步至 v2.1.1，补充工具流兼容与热门 Skills 行为说明。
 
 ## v2.1.0 (2026-10-16)
 

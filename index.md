@@ -40,11 +40,11 @@ const tools = [
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-glow" aria-hidden="true"></div>
     <div class="hero-grid-bg" aria-hidden="true"></div>
-    <p class="hero-badge">v2.1.0 · MCP · SKILLS · 积分 · 模型代理</p>
+    <p class="hero-badge">v2.1.1 · MCP · SKILLS · 积分 · 模型代理</p>
     <img class="hero-logo" :src="withBase('/icon.png')" alt="AI Toolkit 图标" width="88" height="88">
     <h1 id="hero-title">AI Toolkit</h1>
     <p class="hero-tagline">为 AI 编程工具准备的统一控制台</p>
-    <p class="hero-desc">集中管理 24 款 AI 编程工具的 MCP Server、Skills 技能、平台积分与本地模型代理。v2.1.0 加强技能目录、桌面导航与授权边界，并支持 32 MiB 长会话图片历史。</p>
+    <p class="hero-desc">集中管理 24 款 AI 编程工具的 MCP Server、Skills 技能、平台积分与本地模型代理。v2.1.1 修复 TRAE 工具流调用 ID，热门 Skills 使用 skills.sh 累计安装榜并支持加载重试。</p>
     <div class="hero-actions" aria-label="主要操作">
       <a class="action-primary" :href="withBase('download')">立即下载</a>
       <a class="action-secondary" :href="withBase('features')">查看功能</a>

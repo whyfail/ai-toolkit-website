@@ -1,6 +1,6 @@
 # AI Toolkit 官网
 
-这是使用 VitePress 构建的 AI Toolkit 官网，包含下载、功能、亮点与更新记录。产品说明对应 AI Toolkit **v2.1.0**，覆盖五个功能面板、安全加固与长会话代理兼容。
+这是使用 VitePress 构建的 AI Toolkit 官网，包含下载、功能、亮点与更新记录。产品说明对应 AI Toolkit **v2.1.1**，覆盖五个功能面板、热门 Skills、工具流修复及既有安全加固与长会话代理兼容。
 
 ## 开发
 
