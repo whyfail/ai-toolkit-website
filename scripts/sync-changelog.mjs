@@ -34,7 +34,7 @@ pageClass: product-doc release-doc
 import { withBase } from 'vitepress'
 </script>
 
-# Changelog
+# 更新日志
 
 <!-- Generated from ${sourceUrl}. Keep page chrome here; edit release notes in AI-Toolkit/CHANGELOG.md. -->
 
@@ -46,27 +46,27 @@ import { withBase } from 'vitepress'
   </div>
   <div class="image-pair">
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/main-panel.png')" alt="AI Toolkit Skills 管理主界面" width="1800" height="1200" loading="lazy">
+      <img :src="withBase('/screenshots/webp/main-panel.webp')" alt="AI Toolkit Skills 管理主界面" width="1800" height="1200" loading="lazy">
       <figcaption>Skills 管理页展示来源筛选、批量同步与目标工具状态。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/mcp-panel.png')" alt="AI Toolkit MCP 服务器管理界面" width="1800" height="1200" loading="lazy">
+      <img :src="withBase('/screenshots/webp/mcp-panel.webp')" alt="AI Toolkit MCP 服务器管理界面" width="1800" height="1200" loading="lazy">
       <figcaption>MCP 服务器页展示搜索、工具统计与启用状态。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/credits-panel.png')" alt="账户与积分界面，账号身份信息已打码" width="1800" height="1200" loading="lazy">
+      <img :src="withBase('/screenshots/webp/credits-panel.webp')" alt="账户与积分界面，账号身份信息已打码" width="1800" height="1200" loading="lazy">
       <figcaption>分别查看 WorkBuddy、TRAE CN、Qoder 的原生额度与领取状态。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/proxy-panel.png')" alt="本地模型代理连接参数" width="1800" height="1200" loading="lazy">
+      <img :src="withBase('/screenshots/webp/proxy-panel.webp')" alt="本地模型代理连接参数" width="1800" height="1200" loading="lazy">
       <figcaption>复制连接参数，使用 OpenAI 或 Anthropic 协议接入客户端。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/add-server.png')" alt="AI Toolkit 添加 MCP 服务器界面" width="1800" height="1200" loading="lazy">
+      <img :src="withBase('/screenshots/webp/add-server.webp')" alt="AI Toolkit 添加 MCP 服务器界面" width="1800" height="1200" loading="lazy">
       <figcaption>添加弹窗展示内置 JSON 示例与目标工具选择。</figcaption>
     </figure>
     <figure class="screen-frame">
-      <img :src="withBase('/screenshots/settings-panel.png')" alt="AI Toolkit 设置界面" width="1800" height="1200" loading="lazy">
+      <img :src="withBase('/screenshots/webp/settings-panel.webp')" alt="AI Toolkit 设置界面" width="1800" height="1200" loading="lazy">
       <figcaption>设置页集中提供外观切换、软件更新与官网分享。</figcaption>
     </figure>
   </div>

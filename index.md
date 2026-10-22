@@ -1,5 +1,6 @@
 ---
 layout: page
+sidebar: false
 pageClass: landing-page
 title: AI Toolkit
 description: 统一管理 AI 编程工具的 MCP、Skills、平台积分与本地模型代理
@@ -39,13 +40,11 @@ const tools = [
 
 <main class="landing-shell">
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="hero-grid-bg" aria-hidden="true"></div>
     <p class="hero-badge">v2.1.4 · MCP · SKILLS · 积分 · 模型代理</p>
-    <img class="hero-logo" :src="withBase('/icon.png')" alt="AI Toolkit 图标" width="88" height="88">
+    <img class="hero-logo" :src="withBase('/icon-192.png')" alt="AI Toolkit 图标" width="68" height="68">
     <h1 id="hero-title">AI Toolkit</h1>
     <p class="hero-tagline">为 AI 编程工具准备的统一控制台</p>
-    <p class="hero-desc">集中管理 25 款 AI 编程工具的 MCP Server、Skills 技能、平台积分与本地模型代理。v2.1.4 新增 DeepSeek Harness 适配与模型推理等级，改善客户端请求兼容。</p>
+    <p class="hero-desc">集中管理 25 款 AI 编程工具的 MCP、Skills、平台积分与本地模型代理。</p>
     <div class="hero-actions" aria-label="主要操作">
       <a class="action-primary" :href="withBase('download')">立即下载</a>
       <a class="action-secondary" :href="withBase('features')">查看功能</a>
@@ -101,7 +100,7 @@ const tools = [
     </div>
     <figure class="product-frame">
       <img
-        :src="withBase('/screenshots/add-server.png')"
+        :src="withBase('/screenshots/webp/add-server.webp')"
         alt="AI Toolkit 添加 MCP 服务器界面"
         width="1800"
         height="1200"
@@ -113,7 +112,7 @@ const tools = [
   <section class="landing-section workflow-section reversed" aria-labelledby="skills-title">
     <figure class="product-frame">
       <img
-        :src="withBase('/screenshots/skills-panel.png')"
+        :src="withBase('/screenshots/webp/skills-panel.webp')"
         alt="AI Toolkit Skills 管理界面"
         width="1800"
         height="1200"
@@ -145,7 +144,7 @@ const tools = [
     </div>
     <figure class="product-frame">
       <img
-        :src="withBase('/screenshots/credits-panel.png')"
+        :src="withBase('/screenshots/webp/credits-panel.webp')"
         alt="AI Toolkit 账户与积分界面"
         width="1800"
         height="1200"
@@ -161,22 +160,18 @@ const tools = [
     </div>
     <div class="capability-grid">
       <article data-index="01">
-        <span class="card-glyph">🔍</span>
         <h3>自动发现工具</h3>
         <p>启动时扫描本地已安装的 CLI、桌面应用与 IDE 扩展，只依据真实安装证据判定同步目标。</p>
       </article>
       <article data-index="02">
-        <span class="card-glyph">🛡️</span>
         <h3>原子写入</h3>
         <p>配置通过临时文件加重命名机制写入，避免半写状态损坏 JSON/TOML 配置文件。</p>
       </article>
       <article data-index="03">
-        <span class="card-glyph">📌</span>
         <h3>托盘常驻</h3>
         <p>关闭主窗口后留在系统托盘，已开启的模型代理与后台任务继续运行。</p>
       </article>
       <article data-index="04">
-        <span class="card-glyph">🔄</span>
         <h3>更新与分享</h3>
         <p>启动时自动检查新版本并弹窗确认，设置页可一键复制官网地址分享给其他开发者。</p>
       </article>
@@ -185,7 +180,7 @@ const tools = [
 
   <footer class="landing-footer">
     <span class="footer-brand">
-      <img :src="withBase('/icon.png')" alt="" width="20" height="20">
+      <img :src="withBase('/icon-32.png')" alt="" width="18" height="18">
       AI Toolkit
     </span>
     <p>Made with ❤️ for AI Developers · Released under the MIT License</p>

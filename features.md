@@ -12,35 +12,9 @@ AI Toolkit 是面向 AI 编程工具重度用户的桌面管理器，将 MCP、S
 
 当前版本 **v2.1.4** 包含 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。配图保留 2026-10-15 截取的 macOS v2.0.0 实机界面，昵称、账号 ID 等敏感信息已打码。
 
-## v2.1.4 更新
+## 版本更新
 
-- 新增 DeepSeek Harness 桌面应用与 `dsh` CLI 检测、官方图标、启动、MCP 导入与同步、Skills 同步，支持工具增至 25 种；MCP 使用机器级 `cordis.patch.yml`，支持 stdio 和 Streamable HTTP，保留其他插件与嵌套作用域。
-- 模型信息卡展示 WorkBuddy、TRAE、Qoder 目录提供的推理档位和默认值，保留通道原始名称与中文说明；目录未提供的档位保持未知，不修改客户端推理参数。
-- 兼容 Chat Completions 的 `store: false`、Qoder 的 `developer` 消息和 WorkBuddy 的两处固定 Harness 系统模板；保留系统优先级、用户内容与工具历史。
-- 明确的上游通道拒绝返回 `upstream_channel_rejected`，不自动重试或轮换账号，不暴露原始错误正文。
-
-## v2.1.3 基础改进
-
-- TRAE CN 签到状态与领取使用独立 UG 网关，修复 `.com.cn` 账号签到返回 404 的问题；身份验证、Token 刷新与账单继续使用账号所属域名。
-- Vite 忽略 `src-tauri` 文件变动，避免 Rust 源码和生成文件触发前端重载。
-
-## v2.1.2 更新
-
-- 模型信息卡展示通道上下文、最大输出、输入能力、调用 ID 和目录公开的底层模型 ID；新增参数缺失时保持未知，不根据名称推测能力或版本。
-- 优先读取各通道目录声明的最大上下文，Qoder 请求显式选择最大可用档位，保留客户端输出 Token 预算；超限错误说明请求值与通道上限。
-- 修复 TRAE 部署统计覆盖流式模型身份的问题，保留型号校验；同账户重复模型条目按目录优先级去重。
-
-## v2.1.1 基础改进
-
-- TRAE 工具流的后续分片携带空字符串或 `null` ID 时，保留先前的真实调用 ID，兼容 JSON 与 Messages SSE；全程缺少 ID 的调用仍返回明确错误。
-- 热门 Skills 改用 skills.sh 累计安装榜前 20 项，展示实际安装量；加载失败显示具体原因并支持重试，打开添加弹窗的在线页时才启用请求。
-
-## v2.1.0 基础能力
-
-- 两种模型代理协议支持 32 MiB 请求正文，兼容较长的图片与工具历史，并保留无签名思考内容；超限、JSON 和 Content-Type 错误分别返回明确状态。
-- Skills 安装、更新、同步、重命名与删除统一校验名称、目录归属和来源身份，替换失败恢复旧内容，Git 缓存与文件处理增加资源预算。
-- WebView 限制可信来源导航，外链交由系统浏览器；OAuth 加强 state、PKCE 与回环请求校验，数据库与缓存使用受限文件权限。
-- 更新 Tauri、Vite、PostCSS 等依赖，前端构建不再暴露原生签名环境变量。验证范围和剩余事项见 [安全加固记录](https://github.com/whyfail/AI-Toolkit/blob/main/docs/security-hardening.md)。
+v2.1.4 新增 DeepSeek Harness 适配（支持工具增至 25 种）、模型信息卡的推理档位展示，并改善 Harness 客户端请求兼容。此前版本的修复与优化见 [更新日志](/change)。
 
 ## MCP 服务器管理
 
@@ -84,7 +58,7 @@ AI Toolkit 是面向 AI 编程工具重度用户的桌面管理器，将 MCP、S
 </div>
 
 <figure class="screen-frame">
-  <img :src="withBase('/screenshots/mcp-panel.png')" alt="MCP 服务器列表及各工具启用状态" width="1800" height="1200" loading="lazy">
+  <img :src="withBase('/screenshots/webp/mcp-panel.webp')" alt="MCP 服务器列表及各工具启用状态" width="1800" height="1200" loading="lazy">
   <figcaption>服务器列表、工具统计与启用状态在同一页面展示。</figcaption>
 </figure>
 
@@ -130,7 +104,7 @@ AI Toolkit 是面向 AI 编程工具重度用户的桌面管理器，将 MCP、S
 </div>
 
 <figure class="screen-frame">
-  <img :src="withBase('/screenshots/skills-panel.png')" alt="Skills 管理与 Git 来源筛选" width="1800" height="1200" loading="lazy">
+  <img :src="withBase('/screenshots/webp/skills-panel.webp')" alt="Skills 管理与 Git 来源筛选" width="1800" height="1200" loading="lazy">
   <figcaption>按来源与同步状态筛选 Skills，并选择目标工具批量同步。</figcaption>
 </figure>
 
@@ -179,11 +153,11 @@ AI Toolkit 是面向 AI 编程工具重度用户的桌面管理器，将 MCP、S
 
 <div class="image-pair">
   <figure class="screen-frame">
-    <img :src="withBase('/screenshots/credits-panel.png')" alt="账户与积分面板，昵称和账号 ID 已打码" width="1800" height="1200" loading="lazy">
+    <img :src="withBase('/screenshots/webp/credits-panel.webp')" alt="账户与积分面板，昵称和账号 ID 已打码" width="1800" height="1200" loading="lazy">
     <figcaption>各平台分别展示原生额度、领取状态和模型目录；账号身份信息已打码。</figcaption>
   </figure>
   <figure class="screen-frame">
-    <img :src="withBase('/screenshots/proxy-panel.png')" alt="本地模型代理的连接参数与协议" width="1800" height="1200" loading="lazy">
+    <img :src="withBase('/screenshots/webp/proxy-panel.webp')" alt="本地模型代理的连接参数与协议" width="1800" height="1200" loading="lazy">
     <figcaption>在本地代理页复制客户端所需的连接参数，界面不展示实际密钥。</figcaption>
   </figure>
 </div>
@@ -227,7 +201,7 @@ AI Toolkit 启动时自动扫描本地已安装的 CLI、桌面应用和 IDE 扩
 </div>
 
 <figure class="screen-frame">
-  <img :src="withBase('/screenshots/settings-panel.png')" alt="设置中的外观、更新和官网分享" width="1800" height="1200" loading="lazy">
+  <img :src="withBase('/screenshots/webp/settings-panel.webp')" alt="设置中的外观、更新和官网分享" width="1800" height="1200" loading="lazy">
   <figcaption>设置页集中提供外观切换、软件更新与官网分享。</figcaption>
 </figure>
 
