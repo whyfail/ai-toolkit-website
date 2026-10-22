@@ -18,6 +18,7 @@ const tools = [
   { name: 'ZCode', icon: 'zcode.png' },
   { name: 'Kimi Code', icon: 'kimi-code.png' },
   { name: 'MiniMax Code', icon: 'minimax-code.png' },
+  { name: 'DeepSeek Harness', icon: 'deepseek-harness.svg' },
   { name: 'Qwen Code', glyph: 'Q' },
   { name: 'Gemini CLI', glyph: 'G' },
   { name: 'Cursor', glyph: 'C' },
@@ -40,11 +41,11 @@ const tools = [
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-glow" aria-hidden="true"></div>
     <div class="hero-grid-bg" aria-hidden="true"></div>
-    <p class="hero-badge">v2.1.2 · MCP · SKILLS · 积分 · 模型代理</p>
+    <p class="hero-badge">v2.1.4 · MCP · SKILLS · 积分 · 模型代理</p>
     <img class="hero-logo" :src="withBase('/icon.png')" alt="AI Toolkit 图标" width="88" height="88">
     <h1 id="hero-title">AI Toolkit</h1>
     <p class="hero-tagline">为 AI 编程工具准备的统一控制台</p>
-    <p class="hero-desc">集中管理 24 款 AI 编程工具的 MCP Server、Skills 技能、平台积分与本地模型代理。v2.1.2 新增模型信息卡，展示通道参数与底层模型 ID，优先使用目录声明的最大上下文。</p>
+    <p class="hero-desc">集中管理 25 款 AI 编程工具的 MCP Server、Skills 技能、平台积分与本地模型代理。v2.1.4 新增 DeepSeek Harness 适配与模型推理等级，改善客户端请求兼容。</p>
     <div class="hero-actions" aria-label="主要操作">
       <a class="action-primary" :href="withBase('download')">立即下载</a>
       <a class="action-secondary" :href="withBase('features')">查看功能</a>
@@ -54,7 +55,7 @@ const tools = [
 
   <section class="stats-band" aria-label="AI Toolkit 概览">
     <div class="stat-item">
-      <span class="stat-num">24</span>
+      <span class="stat-num">25</span>
       <span class="stat-label">AI 编程工具适配</span>
     </div>
     <div class="stat-item">

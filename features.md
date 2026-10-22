@@ -10,7 +10,19 @@ import { withBase } from 'vitepress'
 
 AI Toolkit 是面向 AI 编程工具重度用户的桌面管理器，将 MCP、Skills、已安装工具检测以及平台积分与本地模型代理集中管理。
 
-当前版本 **v2.1.2** 包含 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。配图保留 2026-10-15 截取的 macOS v2.0.0 实机界面，昵称、账号 ID 等敏感信息已打码。
+当前版本 **v2.1.4** 包含 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。配图保留 2026-10-15 截取的 macOS v2.0.0 实机界面，昵称、账号 ID 等敏感信息已打码。
+
+## v2.1.4 更新
+
+- 新增 DeepSeek Harness 桌面应用与 `dsh` CLI 检测、官方图标、启动、MCP 导入与同步、Skills 同步，支持工具增至 25 种；MCP 使用机器级 `cordis.patch.yml`，支持 stdio 和 Streamable HTTP，保留其他插件与嵌套作用域。
+- 模型信息卡展示 WorkBuddy、TRAE、Qoder 目录提供的推理档位和默认值，保留通道原始名称与中文说明；目录未提供的档位保持未知，不修改客户端推理参数。
+- 兼容 Chat Completions 的 `store: false`、Qoder 的 `developer` 消息和 WorkBuddy 的两处固定 Harness 系统模板；保留系统优先级、用户内容与工具历史。
+- 明确的上游通道拒绝返回 `upstream_channel_rejected`，不自动重试或轮换账号，不暴露原始错误正文。
+
+## v2.1.3 基础改进
+
+- TRAE CN 签到状态与领取使用独立 UG 网关，修复 `.com.cn` 账号签到返回 404 的问题；身份验证、Token 刷新与账单继续使用账号所属域名。
+- Vite 忽略 `src-tauri` 文件变动，避免 Rust 源码和生成文件触发前端重载。
 
 ## v2.1.2 更新
 
@@ -192,8 +204,8 @@ AI Toolkit 启动时自动扫描本地已安装的 CLI、桌面应用和 IDE 扩
     <p>Codex CLI、桌面版和 IDE 扩展共用一个 Codex 入口；WorkBuddy 国内版与国际版共用一个 WorkBuddy 入口。</p>
   </article>
   <article class="feature-card">
-    <h3>覆盖 24 种工具</h3>
-    <p>包含 Kimi Code、MiniMax Code 的桌面应用与 CLI 识别、官方图标、MCP 和 Skills 同步。</p>
+    <h3>覆盖 25 种工具</h3>
+    <p>包含 Kimi Code、MiniMax Code、DeepSeek Harness 的桌面应用与 CLI 识别、官方图标、MCP 和 Skills 同步。</p>
   </article>
   <article class="feature-card">
     <h3>路径与来源透明</h3>
@@ -240,6 +252,7 @@ AI Toolkit 启动时自动扫描本地已安装的 CLI、桌面应用和 IDE 扩
   <div class="path-row"><strong>Mimo Code</strong><code>~/.config/mimocode/mimocode.json</code></div>
   <div class="path-row"><strong>Kimi Code</strong><code>~/.kimi-code/mcp.json</code></div>
   <div class="path-row"><strong>MiniMax Code</strong><code>~/.minimax/mcp.json</code></div>
+  <div class="path-row"><strong>DeepSeek Harness</strong><code>~/.dsh/cordis.patch.yml</code></div>
   <div class="path-row"><strong>WorkBuddy / WorkBuddy CN</strong><code>~/.workbuddy/.mcp.json</code></div>
   <div class="path-row"><strong>ZCode</strong><code>~/.zcode/cli/config.json</code></div>
   <div class="path-row"><strong>Cursor</strong><code>~/.cursor/mcp.json</code></div>

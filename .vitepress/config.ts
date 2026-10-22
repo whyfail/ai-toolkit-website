@@ -18,7 +18,7 @@ export default defineConfig({
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'AI Toolkit' }],
     ['meta', { property: 'og:title', content: 'AI Toolkit — AI 编程工具统一控制台' }],
-    ['meta', { property: 'og:description', content: '统一管理 24 款 AI 编程工具的 MCP Server、Skills 技能、平台积分与本地模型代理。' }],
+    ['meta', { property: 'og:description', content: '统一管理 25 款 AI 编程工具的 MCP Server、Skills 技能、平台积分与本地模型代理。' }],
     ['meta', { property: 'og:image', content: 'https://whyfail.github.io/ai-toolkit-website/icon-512.png' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
   ],

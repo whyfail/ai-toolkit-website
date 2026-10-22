@@ -12,9 +12,9 @@ import { withBase } from 'vitepress'
 
 <section class="release-gallery">
   <div>
-    <p class="section-label">v2.1.2 release notes</p>
+    <p class="section-label">v2.1.4 release notes</p>
     <h2>Skills、MCP 与积分代理，集中在同一个桌面工作台</h2>
-    <p>当前版本 v2.1.2，提供 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
+    <p>当前版本 v2.1.4，提供 Skills 管理、MCP 服务器、积分与代理、设置、关于五个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
   </div>
   <div class="image-pair">
     <figure class="screen-frame">
@@ -43,6 +43,37 @@ import { withBase } from 'vitepress'
     </figure>
   </div>
 </section>
+
+## v2.1.4 (2026-10-22)
+
+### 新功能
+
+- **DeepSeek Harness 适配**：新增桌面应用与 `dsh` CLI 检测、官方图标、启动入口、MCP 导入同步与 Skills 同步，支持工具增至 25 种。MCP 使用机器级 `cordis.patch.yml`，支持 stdio 与 Streamable HTTP，保留其他插件、嵌套作用域和非 MCP 配置中的动态表达式；Skills 支持 `DSH_HOME`、`DSH_AGENTS_HOME` 与共享目录发现。
+- **模型推理等级**：模型信息卡展示 WorkBuddy、TRAE、Qoder 目录提供的推理档位与默认值，保留通道原始名称并补充中文说明；目录未提供的档位保持未知，不根据思考输出标记推测，也不修改客户端推理参数。
+
+### 修复
+
+- **客户端请求兼容**：Chat Completions 接受并在本地消费 `store: false`，拒绝启用响应存储；Qoder 将 `developer` 消息转换为上游支持的 `system` 消息，保留正文、顺序和工具历史。
+- **WorkBuddy Harness 兼容**：对已验证的两处固定系统模板做定点措辞调整，保留系统优先级、其余指令、用户消息、历史内容与工具定义，兼容字符串和文本块数组。
+- **上游通道错误**：仅对明确的 `400/11128` 通道拒绝返回安全、具体的 `upstream_channel_rejected` 错误，不自动重试或轮换账号，也不向客户端或日志暴露原始错误正文。
+
+### 文档
+
+- 同步应用配置、Rust 锁文件、中英文 README、Agent 适配说明、积分与代理说明及发布流程至 v2.1.4，补充 DeepSeek Harness、推理档位和客户端兼容的验证边界。
+
+## v2.1.3 (2026-10-20)
+
+### 修复
+
+- **TRAE CN 签到网关**：签到状态与领取统一使用独立的 UG 网关，避免 `.com.cn` 账号将签到请求发送到账户域名后返回 404；身份验证、Token 刷新与账单查询继续使用账号所属域名。补充网关分离、签到状态与单次领取的回归测试。
+
+### 开发体验
+
+- Vite 文件监听忽略 `src-tauri` 目录，避免 Rust 源码与生成文件变动触发前端重载。
+
+### 文档
+
+- 应用版本、Rust 锁文件、中英文 README、积分与代理说明及发布流程同步至 v2.1.3，补充 TRAE 签到网关与账号域名的区别。
 
 ## v2.1.2 (2026-10-19)
 
