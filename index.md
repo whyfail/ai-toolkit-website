@@ -40,7 +40,7 @@ const tools = [
 
 <main class="landing-shell">
   <section class="hero" aria-labelledby="hero-title">
-    <p class="hero-badge">v2.1.4 · MCP · SKILLS · 积分 · 模型代理</p>
+    <p class="hero-badge">v2.1.6 · MCP · SKILLS · 积分 · 模型代理</p>
     <img class="hero-logo" :src="withBase('/icon-192.png')" alt="AI Toolkit 图标" width="68" height="68">
     <h1 id="hero-title">AI Toolkit</h1>
     <p class="hero-tagline">为 AI 编程工具准备的统一控制台</p>
@@ -58,7 +58,7 @@ const tools = [
       <span class="stat-label">AI 编程工具适配</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num">5</span>
+      <span class="stat-num">6</span>
       <span class="stat-label">功能面板：Skills · MCP · 积分代理</span>
     </div>
     <div class="stat-item">
