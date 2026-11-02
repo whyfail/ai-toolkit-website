@@ -12,9 +12,9 @@ import { withBase } from 'vitepress'
 
 <section class="release-gallery">
   <div>
-    <p class="section-label">v2.1.7 release notes</p>
+    <p class="section-label">v2.1.8 release notes</p>
     <h2>Skills、MCP 与积分代理，集中在同一个桌面工作台</h2>
-    <p>当前版本 v2.1.7，提供 Skills 管理、MCP 服务器、积分与代理、更新日志、设置、关于六个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
+    <p>当前版本 v2.1.8，提供 Skills 管理、MCP 服务器、积分与代理、更新日志、设置、关于六个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
   </div>
   <div class="image-pair">
     <figure class="screen-frame">
@@ -43,6 +43,17 @@ import { withBase } from 'vitepress'
     </figure>
   </div>
 </section>
+
+## v2.1.8 (2026-11-02)
+
+### 修复
+
+- **TRAE CN 签到金额**：每日签到奖励按平台返回的 `credits` 展示，不再重复累加会员奖励提示 `extra_credits`；缺少奖励金额时保持未知，避免高估本次领取积分。
+- **TRAE CN 签到状态**：仅以账号的 `checked_in` 确认已签到，将设备限制 `did_checked_in` 单独视为不可领取；设备已领取但当前账号未签到时，不再误报账号领取成功。重复领取已签到账号时保持「已领取」，不再次提交或累计奖励。
+
+### 文档
+
+- 同步应用版本、Rust 锁文件、中英文 README、积分与代理说明及发布工作流至 v2.1.8，补充签到金额与设备限制的说明。
 
 ## v2.1.7 (2026-10-27)
 
