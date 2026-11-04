@@ -10,11 +10,11 @@ import { withBase } from 'vitepress'
 
 AI Toolkit 是面向 AI 编程工具重度用户的桌面管理器，将 MCP、Skills、已安装工具检测以及平台积分与本地模型代理集中管理。
 
-当前版本 **v2.1.8** 包含 Skills 管理、MCP 服务器、积分与代理、更新日志、设置、关于六个面板。配图保留 2026-10-15 截取的 macOS v2.0.0 实机界面，昵称、账号 ID 等敏感信息已打码。
+当前版本 **v2.2.0** 包含 Skills 管理、MCP 服务器、积分与代理、更新日志、设置、关于六个面板。配图保留 2026-10-15 截取的 macOS v2.0.0 实机界面，昵称、账号 ID 等敏感信息已打码。
 
 ## 版本更新
 
-v2.1.8 修正 TRAE CN 签到金额与状态：按平台返回的奖励金额展示，不重复累加会员奖励提示；区分账号已签到与设备领取限制，避免误报领取成功。已签到账号重复操作不会再次提交或累计奖励，缺少金额时保持未知。详细规则见 [积分与模型代理说明](https://github.com/whyfail/AI-Toolkit/blob/main/docs/credits-proxy.md)。
+v2.2.0 新增账号区域与国际版实验性适配，国内、国际凭据和模型路由独立管理，旧数据迁移前备份；积分、USD 和请求次数按原生单位分项展示。Messages 在明确启用时返回无签名思考内容。国际平台能力与实测边界见下方支持矩阵，协议规则见 [积分与模型代理说明](https://github.com/whyfail/AI-Toolkit/blob/main/docs/credits-proxy.md)。
 
 应用内「更新日志」面板离线展示完整发布记录，点击侧边栏应用图标可打开官网；此前版本的修复与优化见 [更新日志](/change)。
 
@@ -111,6 +111,18 @@ v2.1.8 修正 TRAE CN 签到金额与状态：按平台返回的奖励金额展�
 </figure>
 
 ## 积分与模型代理
+
+### 国际版支持矩阵（v2.2.0 实验性） {#international-credits}
+
+国内、国际账号独立存储与调度，积分、USD 和请求次数分项展示；旧数据默认国内版，迁移前备份。v2.2.0 按以下范围包含国际版实验性适配。
+
+| 国际平台 | 登录与额度 | 模型目录与代理 | 实测状态 |
+| --- | --- | --- | --- |
+| WorkBuddy | 已实现区域 OAuth、所选账号轮询和账单去重 | `workbuddy-intl/<模型ID>`，遵守产品／企业目录与套餐权限 | 真实账号余额、目录只读查询已有通过记录；推理调用缺完整实测 |
+| TRAE | 国际 OAuth、本机导入，SG／US／USTTP 原生额度 | `traework-intl/` 预留；尚缺请求体与认证头，暂未开放 | 身份、账单只读查询通过，已取得官方目录和工具闭环响应；模型协议未完成 |
+| Qoder | 生产 OAuth、刷新、额度及国际活动设备助手 | `qoder-intl/<模型ID>` | 未实测，离线契约验证 |
+
+三平台完整适配仍在进行，TRAE 国际模型目录与代理返回 HTTP 501。WorkBuddy 国际活跃奖励由平台自动结算，TRAE 国际版不调用国内签到，Qoder 仅处理实时可领取积分任务。详见[协议依据与验证边界](https://github.com/whyfail/AI-Toolkit/blob/main/docs/credits-international.md)。
 
 <div class="feature-grid">
   <article class="feature-card">
