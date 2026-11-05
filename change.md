@@ -12,9 +12,9 @@ import { withBase } from 'vitepress'
 
 <section class="release-gallery">
   <div>
-    <p class="section-label">v2.2.1 release notes</p>
+    <p class="section-label">v2.2.2 release notes</p>
     <h2>Skills、MCP 与积分代理，集中在同一个桌面工作台</h2>
-    <p>当前版本 v2.2.1，提供 Skills 管理、MCP 服务器、积分与代理、更新日志、设置、关于六个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
+    <p>当前版本 v2.2.2，提供 Skills 管理、MCP 服务器、积分与代理、更新日志、设置、关于六个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
   </div>
   <div class="image-pair">
     <figure class="screen-frame">
@@ -43,6 +43,17 @@ import { withBase } from 'vitepress'
     </figure>
   </div>
 </section>
+
+## v2.2.2 (2026-11-05)
+
+### 修复
+
+- **代理模型目录容量**：`GET /v1/models` 新增 `context_window` 与 `max_output_tokens` 扩展字段，分别返回路由已知的上下文窗口和最大输出 Token。平台前缀模型与已验证的通用别名均携带容量信息，供 Harness 等客户端按目录配置预算，避免将 1M 模型误按较小窗口处理。
+- **多账号与未知上限**：同一路由存在多个可用账号时，仅返回所有账号都明确声明的容量，并取最小值；任一账号缺失或返回非正数时省略对应字段，不继承其他账号的上限，也不把上下文当作最大输出。该扩展不改写调用方明确指定的输出预算或真实截断的结束原因。
+
+### 文档
+
+- 同步版本、Rust 锁文件、中英文 README、积分与代理说明、国际支持矩阵、官网与发布工作流至 v2.2.2，补充模型目录字段与回归验证记录。
 
 ## v2.2.1 (2026-11-05)
 
