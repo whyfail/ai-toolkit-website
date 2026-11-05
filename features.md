@@ -10,11 +10,11 @@ import { withBase } from 'vitepress'
 
 AI Toolkit 是面向 AI 编程工具重度用户的桌面管理器，将 MCP、Skills、已安装工具检测以及平台积分与本地模型代理集中管理。
 
-当前版本 **v2.2.0** 包含 Skills 管理、MCP 服务器、积分与代理、更新日志、设置、关于六个面板。配图保留 2026-10-15 截取的 macOS v2.0.0 实机界面，昵称、账号 ID 等敏感信息已打码。
+当前版本 **v2.2.1** 包含 Skills 管理、MCP 服务器、积分与代理、更新日志、设置、关于六个面板。配图保留 2026-10-15 截取的 macOS v2.0.0 实机界面，昵称、账号 ID 等敏感信息已打码。
 
 ## 版本更新
 
-v2.2.0 新增账号区域与国际版实验性适配，国内、国际凭据和模型路由独立管理，旧数据迁移前备份；积分、USD 和请求次数按原生单位分项展示。Messages 在明确启用时返回无签名思考内容。国际平台能力与实测边界见下方支持矩阵，协议规则见 [积分与模型代理说明](https://github.com/whyfail/AI-Toolkit/blob/main/docs/credits-proxy.md)。
+v2.2.1 新增 MiniMax Code 国内／国际独立账号、设备授权、本机导入、个人积分与每日签到，接入单项、批量和定时领取；实时模型目录与双协议代理支持文本、图片和工具历史转换。信息卡展示上下文可选档位，M3／M3.1-Flash 默认最高 1M 并提示用量较高；强制思考模型明确提示有效推理档位，本地参数错误不误报上游失败。国际账号、图片理解、完整网页登录和真实领取尚未实测，详细记录见 [积分与模型代理说明](https://github.com/whyfail/AI-Toolkit/blob/main/docs/credits-proxy.md)。
 
 应用内「更新日志」面板离线展示完整发布记录，点击侧边栏应用图标可打开官网；此前版本的修复与优化见 [更新日志](/change)。
 
@@ -112,25 +112,27 @@ v2.2.0 新增账号区域与国际版实验性适配，国内、国际凭据和�
 
 ## 积分与模型代理
 
-### 国际版支持矩阵（v2.2.0 实验性） {#international-credits}
+### 国际版支持矩阵（v2.2.1 实验性） {#international-credits}
 
-国内、国际账号独立存储与调度，积分、USD 和请求次数分项展示；旧数据默认国内版，迁移前备份。v2.2.0 按以下范围包含国际版实验性适配。
+国内、国际账号独立存储与调度，积分、USD 和请求次数分项展示；旧数据默认国内版，迁移前备份。v2.2.1 按以下范围包含国际版实验性适配。
 
 | 国际平台 | 登录与额度 | 模型目录与代理 | 实测状态 |
 | --- | --- | --- | --- |
 | WorkBuddy | 已实现区域 OAuth、所选账号轮询和账单去重 | `workbuddy-intl/<模型ID>`，遵守产品／企业目录与套餐权限 | 真实账号余额、目录只读查询已有通过记录；推理调用缺完整实测 |
 | TRAE | 国际 OAuth、本机导入，SG／US／USTTP 原生额度 | `traework-intl/` 预留；尚缺请求体与认证头，暂未开放 | 身份、账单只读查询通过，已取得官方目录和工具闭环响应；模型协议未完成 |
 | Qoder | 生产 OAuth、刷新、额度及国际活动设备助手 | `qoder-intl/<模型ID>` | 未实测，离线契约验证 |
+| MiniMax Code | 区域独立设备授权、本机导入、余额及每日签到 | `minimax-code-intl/<模型ID>`，实时目录与双协议代理 | 国际账号未实测；国内身份、余额、签到状态、目录与部分文本／工具推理已有通过记录，真实领取和图片理解未实测 |
 
-三平台完整适配仍在进行，TRAE 国际模型目录与代理返回 HTTP 501。WorkBuddy 国际活跃奖励由平台自动结算，TRAE 国际版不调用国内签到，Qoder 仅处理实时可领取积分任务。详见[协议依据与验证边界](https://github.com/whyfail/AI-Toolkit/blob/main/docs/credits-international.md)。
+国际版完整适配仍在进行，TRAE 国际模型目录与代理返回 HTTP 501。WorkBuddy 国际活跃奖励由平台自动结算，TRAE 国际版不调用国内签到，Qoder 仅处理实时可领取积分任务，MiniMax Code 根据实时七日面板领取，金额不重复累计。详见[协议依据与验证边界](https://github.com/whyfail/AI-Toolkit/blob/main/docs/credits-international.md)。
 
 <div class="feature-grid">
   <article class="feature-card">
     <h3>多平台账户与余额</h3>
-    <p>连接 WorkBuddy、TRAE CN、Qoder 账户，分别查看平台原生积分、更新时间及额度包。</p>
+    <p>连接 WorkBuddy、TRAE CN、Qoder、MiniMax Code 账户，分别查看平台原生积分、更新时间及额度包。</p>
     <ul>
       <li>支持官方授权入口与已有 Token / 凭据 JSON 导入</li>
       <li>TRAE CN 支持一键导入本机桌面登录态，兼容 CLI 钥匙串凭据</li>
+      <li>MiniMax Code 支持桌面端／mcode CLI 凭据导入，不消耗官方轮换刷新令牌</li>
       <li>账户凭据保存在系统凭据库，界面不展示已保存凭据</li>
       <li>登录过期、余额未知和历史缓存显示明确状态</li>
     </ul>
