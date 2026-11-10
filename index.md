@@ -40,7 +40,7 @@ const tools = [
 
 <main class="landing-shell">
   <section class="hero" aria-labelledby="hero-title">
-    <p class="hero-badge">v2.2.2 · MCP · SKILLS · 积分 · 模型代理</p>
+    <p class="hero-badge">v2.2.3 · MCP · SKILLS · 积分 · 模型代理</p>
     <img class="hero-logo" :src="withBase('/icon-192.png')" alt="AI Toolkit 图标" width="68" height="68">
     <h1 id="hero-title">AI Toolkit</h1>
     <p class="hero-tagline">为 AI 编程工具准备的统一控制台</p>
@@ -136,7 +136,7 @@ const tools = [
       <p class="section-label">Credits visible, models on tap</p>
       <h2 id="credits-title">积分可见可领，模型一键接入。</h2>
       <p>连接 WorkBuddy、TRAE CN、Qoder、MiniMax Code 账户，分别查看原生额度、额度包与领取资格，一键检查并领取可用积分；本地网关再把这些平台的模型以标准协议开放给客户端。</p>
-      <p>v2.2.2 让代理模型目录返回已知的上下文和最大输出容量，客户端可按当前路由配置预算；多账号路由使用共同最小值，未知上限保持未知。国际适配仍为实验性，MiniMax 国际账号尚未实测，TRAE 国际模型目录与代理暂不开放。<a :href="withBase('/features#international-credits')">查看国际版支持矩阵</a>。</p>
+      <p>v2.2.3 支持 Messages 客户端在会话内追加系统消息，按顺序转换环境提醒、系统指令与工具历史，兼容 JSON 和 SSE 响应。各平台的开放范围和验证状态见<a :href="withBase('/features#international-credits')">国际版支持矩阵</a>。</p>
       <div class="mini-points">
         <div><strong>多平台账户</strong><span>官方授权入口或凭据 JSON 导入，凭据保存在系统凭据库。</span></div>
         <div><strong>一键领取</strong><span>批量检查并领取可用积分，可选每日定时，结果逐项记录。</span></div>

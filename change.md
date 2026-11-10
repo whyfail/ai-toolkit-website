@@ -12,9 +12,9 @@ import { withBase } from 'vitepress'
 
 <section class="release-gallery">
   <div>
-    <p class="section-label">v2.2.2 release notes</p>
+    <p class="section-label">v2.2.3 release notes</p>
     <h2>Skills、MCP 与积分代理，集中在同一个桌面工作台</h2>
-    <p>当前版本 v2.2.2，提供 Skills 管理、MCP 服务器、积分与代理、更新日志、设置、关于六个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
+    <p>当前版本 v2.2.3，提供 Skills 管理、MCP 服务器、积分与代理、更新日志、设置、关于六个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
   </div>
   <div class="image-pair">
     <figure class="screen-frame">
@@ -43,6 +43,18 @@ import { withBase } from 'vitepress'
     </figure>
   </div>
 </section>
+
+## v2.2.3 (2026-11-10)
+
+### 修复
+
+- Messages 代理兼容 Claude 等客户端在 `messages` 数组中追加的 `system` 消息。转换为共享请求时按原始会话顺序保留系统角色、文本和工具历史，支持环境信息与提醒消息继续参与会话。
+- 会话内 `system` 消息支持字符串和文本块数组，复用文本格式与标准缓存提示校验。非法角色、无效文本或不支持的系统内容返回 HTTP 400。
+
+### 验证与文档
+
+- 新增协议转换与本地网关回归，覆盖顶层系统指令、会话内系统消息、工具调用与结果，以及 JSON 和 SSE 响应路径。
+- 同步应用版本、Rust 锁文件、中英文 README、代理说明、官网与发布工作流至 v2.2.3。
 
 ## v2.2.2 (2026-11-05)
 
