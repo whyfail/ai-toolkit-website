@@ -79,7 +79,7 @@ const tools = [
 
 <main class="landing-shell">
   <section class="hero" aria-labelledby="hero-title">
-    <p class="hero-badge">v2.2.4 · 四大平台积分 · 本地模型代理 · MCP · SKILLS</p>
+    <p class="hero-badge">v2.2.5 · 四大平台积分 · 本地模型代理 · MCP · SKILLS</p>
     <img class="hero-logo" :src="withBase('/icon-192.png')" alt="AI Toolkit 图标" width="68" height="68">
     <h1 id="hero-title">AI Toolkit</h1>
     <p class="hero-tagline">四大平台积分自动领取，模型经本地代理接入。</p>
@@ -285,7 +285,7 @@ const tools = [
       </article>
       <article data-index="04">
         <h3>更新与分享</h3>
-        <p>启动时自动检查新版本并弹窗确认，设置页可一键复制官网地址分享给其他开发者。</p>
+        <p>启动时静默检查新版本，侧栏提示可用更新，点击查看说明并确认安装。设置页可一键复制官网地址分享给其他开发者。</p>
       </article>
     </div>
   </section>

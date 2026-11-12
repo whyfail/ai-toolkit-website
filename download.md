@@ -4,16 +4,16 @@ pageClass: product-doc download-page
 
 # 下载
 
-AI Toolkit 当前版本为 **v2.2.4**，通过 GitHub Releases 分发安装包。下载前请先看完下方注意事项，尤其是 macOS 未签名应用的首次运行授权步骤。
+AI Toolkit 当前版本为 **v2.2.5**，通过 GitHub Releases 分发安装包。下载前请先看完下方注意事项，尤其是 macOS 未签名应用的首次运行授权步骤。
 
-本版新增领取余额核对和自动领取逐账户退避重试，Messages 工具定义兼容 `eager_input_streaming` 布尔提示。国际适配的开放范围与验证状态见 [国际版支持矩阵](/features#international-credits)。
+本版加入启动静默检查和侧栏更新提示，点击提示可查看更新说明并确认安装，设置页可手动检查。国际适配的开放范围与验证状态见 [国际版支持矩阵](/features#international-credits)。
 
 当前源码构建的 macOS 应用名为 `AiToolkit.app`，旧版安装包使用 `AI Toolkit.app`。请以下载包中的实际名称为准；下方命令使用当前名称，旧版需替换路径中的应用名。
 
 <section class="download-hero">
   <div>
     <p class="section-label">Latest release</p>
-    <h2>从 GitHub Releases 获取 v2.2.4 安装包。</h2>
+    <h2>从 GitHub Releases 获取 v2.2.5 安装包。</h2>
     <p>建议优先进入最新 Release 页面，根据你的系统选择对应安装包。GitHub 会始终把这个入口跳转到当前最新版本。</p>
     <div class="download-actions">
       <a class="action-primary compact" href="https://github.com/whyfail/AI-Toolkit/releases/latest" target="_blank" rel="noreferrer">打开最新 Release</a>
@@ -45,7 +45,7 @@ AI Toolkit 当前版本为 **v2.2.4**，通过 GitHub Releases 分发安装包�
   </article>
   <article class="notice-card">
     <h3>更新由用户确认</h3>
-    <p>应用会在启动时检查 GitHub Releases；发现新版本后会弹窗提示，由用户决定是否下载安装。</p>
+    <p>应用启动时静默检查 GitHub Releases，发现新版本后在侧栏显示更新提示，点击可查看说明并确认安装。后台每 6 小时复查，失败后 15 分钟重试。</p>
   </article>
 </div>
 

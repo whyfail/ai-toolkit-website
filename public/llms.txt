@@ -2,7 +2,7 @@
 
 > 为 AI 编程工具准备的统一控制台：四大平台积分自动领取、本地模型代理、MCP Server 与 Skills 集中管理。基于 Rust + Tauri 2 与 React 构建，macOS 已完整支持，Windows 覆盖 MCP 与 Skills 管理，Linux 推进中。MIT 许可。
 
-- 版本：v2.2.4
+- 当前版本为 v2.2.5
 - 站点：https://whyfail.github.io/ai-toolkit-website/
 - 源码：https://github.com/whyfail/AI-Toolkit
 
