@@ -1,0 +1,63 @@
+# AI Toolkit
+
+> 为 AI 编程工具准备的统一控制台：四大平台积分自动领取、本地模型代理、MCP Server 与 Skills 集中管理。基于 Rust + Tauri 2 与 React 构建，macOS 已完整支持，Windows 覆盖 MCP 与 Skills 管理，Linux 推进中。MIT 许可。
+
+- 版本：v2.2.4
+- 站点：https://whyfail.github.io/ai-toolkit-website/
+- 源码：https://github.com/whyfail/AI-Toolkit
+
+## 四大平台积分自动领取
+
+支持 WorkBuddy、TRAE、Qoder、MiniMax Code 四个平台，国内与国际账号独立存储与调度，余额按平台原生单位（积分、USD、请求次数）分项展示。
+
+- 一键领取：刷新余额时同步查询实时领取资格，逐账号处理符合条件的积分任务；兑换券与优惠码单独展示，不计为积分。
+- 可选自动领取：默认关闭，开启后仅在应用运行期间按北京时间每天 10:30 检查；当天 10:30 后启动会补做检查，从托盘退出后停止。
+- 可靠性：同一账号任务串行执行，临时故障按 1、2、5、15、30 分钟退避，限流遵守上游 Retry-After；结果待确认时只回查，不盲目重复提交。
+- 余额核对：领取前主动查询一次余额，领取后回查并展示净变化。
+- 凭据安全：凭据保存在 macOS Keychain、Windows Credential Manager、Linux Secret Service；启动与后台请求不触发授权弹窗，不退回明文文件。
+- MiniMax Code：每日签到按实时七日面板领取，bonus_points 已包含在 points，不重复累计。
+- Qoder：每日 100 Credits 活动，直接调用官方活动接口领取，奖励领取后 30 天有效。
+- TRAE：国内签到经官方 UG 网关 api.trae.cn 处理，支持一键导入本机桌面登录态。
+- 验证边界：国际版适配仍为实验性，TRAE 国际模型目录与代理返回 HTTP 501，Qoder 与 MiniMax Code 国际账号未实测。
+
+## 本地模型代理
+
+手动开启本地网关，把已接入平台的模型以标准协议开放给任意客户端。
+
+- Base URL：http://127.0.0.1:17860/v1（默认端口 17860，仅监听 127.0.0.1）
+- 端点：GET /health、GET /v1/models、POST /v1/chat/completions（OpenAI）、POST /v1/messages（Anthropic）
+- 认证：网关生成的独立 API Key；OpenAI 接口用 Authorization: Bearer，Messages 接口支持 x-api-key 或 Bearer
+- 模型 ID 前缀：workbuddy/、traework/、qoder/、minimax-code/，国际账号使用对应的 -intl/ 前缀；上游返回不同型号时代理会拒绝响应
+- 能力：两种协议均支持 JSON 与 SSE、文本、图片（base64 或 HTTP(S) URL）、工具调用历史、系统消息与思考内容；请求正文上限 32 MiB
+- 模型目录：GET /v1/models 可返回 context_window 与 max_output_tokens 扩展字段，取所有可用账号都明确声明值的最小值
+- 请求记录：保存来源账号、模型、耗时、上游 Token 数与失败阶段，不保存请求正文、授权令牌或 API Key
+- 运行方式：代理跟随应用运行，关闭主窗口后继续，从托盘退出后停止
+
+## MCP Server 管理
+
+- 粘贴 JSON 或命令自动识别，保存前内置连接测试
+- 自动识别各工具的配置路径，原子写入（临时文件 + 重命名）避免半写损坏
+- 同一服务器按工具启用，状态变更实时同步到对应配置文件
+
+## Skills 管理
+
+- 中心仓库集中存放，再按目标工具同步
+- 支持 Git 仓库安装、skills.sh 在线搜索、批量勾选同步
+- 冲突可选重命名、跳过或覆盖；自动检测 Git 来源技能的新版本并一键更新
+
+## 工具支持
+
+适配 25 款 AI 编程工具，启动时按真实安装证据扫描：Claude Code、OpenAI Codex、OpenCode、TRAE、TRAE CN、Qoder、Qoder CLI、WorkBuddy、ZCode、Kimi Code、MiniMax Code、DeepSeek Harness、Qwen Code、Gemini CLI、Cursor、Windsurf、Cline、Roo Code、Kilo Code、Continue、Goose、Kiro、CodeBuddy、Hermes Agent、Mimo Code。
+
+## 页面索引
+
+- [首页](https://whyfail.github.io/ai-toolkit-website/)：产品概览、四平台积分、模型代理端点与接入示例
+- [下载与安装](https://whyfail.github.io/ai-toolkit-website/download)：macOS / Windows 安装包与系统要求
+- [功能总览](https://whyfail.github.io/ai-toolkit-website/features)：MCP、Skills、积分与模型代理的完整说明，含国际版支持矩阵
+- [亮点](https://whyfail.github.io/ai-toolkit-website/highlights)：多 Agent 工作流下的设计取舍
+- [更新日志](https://whyfail.github.io/ai-toolkit-website/change)：版本变更记录
+
+## 参考文档
+
+- 积分与模型代理完整说明：https://github.com/whyfail/AI-Toolkit/blob/main/docs/credits-proxy.md
+- 国际版适配状态：https://github.com/whyfail/AI-Toolkit/blob/main/docs/credits-international.md
