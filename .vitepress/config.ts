@@ -1,18 +1,49 @@
-import { defineConfig } from 'vitepress'
+import { writeFileSync } from 'node:fs'
+import { defineConfig, type UserConfig } from 'vitepress'
 
 const base = process.env.VITEPRESS_BASE || '/'
+// Absolute origin used for canonical, sitemap and social preview URLs.
+const siteUrl = 'https://whyfail.github.io'
+
+// VitePress's built-in sitemap depends on an optional dependency that is not
+// reliably present in CI, so write sitemap.xml ourselves.
+const writeSitemap: UserConfig['buildEnd'] = (site) => {
+  const urls = site.pages
+    .filter((page) => !page.endsWith('404.md'))
+    .map((page) =>
+      `${siteUrl}${base}${page.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')}`
+    )
+  const entries = urls.map((url) => `  <url><loc>${url}</loc></url>`).join('\n')
+  writeFileSync(
+    `${site.outDir}/sitemap.xml`,
+    `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${entries}
+</urlset>
+`
+  )
+}
 
 export default defineConfig({
   title: 'AI Toolkit',
-  description: '统一管理 AI 编程工具的 MCP、Skills、平台积分与本地模型代理',
+  description: '四大平台积分自动领取，本地模型代理一站接入；统一管理 AI 编程工具的 MCP、Skills、平台积分与模型代理',
   lang: 'zh-CN',
   base,
   cleanUrls: true,
   lastUpdated: true,
+  buildEnd: writeSitemap,
   // Maintainer docs stay in the repo but are not published as site pages.
   srcExclude: ['README.md', 'DESIGN.md'],
   // Docs follow the app: light by default, system-aware, with a manual toggle.
   appearance: true,
+  transformHead({ pageData }) {
+    // Google and Bing prefer an absolute canonical; a relative one is ignored.
+    if (pageData.relativePath.endsWith('404.md')) return []
+    const path = pageData.relativePath
+      .replace(/(^|\/)index\.md$/, '$1')
+      .replace(/\.md$/, '')
+    return [['link', { rel: 'canonical', href: `${siteUrl}${base}${path}` }]]
+  },
   head: [
     ['link', { rel: 'icon', href: `${base}favicon.ico` }],
     ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: `${base}icon-32.png` }],
@@ -25,6 +56,18 @@ export default defineConfig({
     ['meta', { property: 'og:description', content: '统一管理 25 款 AI 编程工具的 MCP Server、Skills 技能、平台积分与本地模型代理。' }],
     ['meta', { property: 'og:image', content: 'https://whyfail.github.io/ai-toolkit-website/icon-512.png' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
+    ['meta', { name: 'robots', content: 'index,follow,max-snippet:-1,max-image-preview:large' }],
+    ['link', { rel: 'alternate', type: 'text/markdown', href: `${base}llms.txt` }],
+    ['script', { type: 'application/ld+json' }, JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'AI Toolkit',
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'macOS, Windows, Linux',
+      description: '统一管理 AI 编程工具的 MCP、Skills、平台积分与本地模型代理。',
+      url: `${siteUrl}${base}`,
+      downloadUrl: `${siteUrl}${base}download`,
+    })],
   ],
   markdown: {
     lineNumbers: false,

@@ -1212,6 +1212,177 @@ img {
   color: var(--muted);
 }
 
+/* Platform grid: one flat card per credits platform. */
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.platform-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 18px 18px 16px;
+  transition: border-color var(--dur) var(--ease);
+}
+
+.platform-card:hover {
+  border-color: var(--border-strong);
+}
+
+.platform-card .platform-head {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.platform-card .platform-logo {
+  display: block;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: var(--surface-2);
+  padding: 5px;
+}
+
+.platform-card .platform-ident {
+  min-width: 0;
+}
+
+.platform-card .platform-idx {
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.platform-card h3 {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 620;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.platform-card .platform-region {
+  display: inline-block;
+  margin-top: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  padding: 1px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.platform-card .platform-unit {
+  margin: 16px 0 0;
+  border-top: 1px solid var(--divider);
+  padding-top: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.platform-card .platform-claim {
+  margin: 6px 0 0;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.platform-card .platform-status {
+  margin-top: auto;
+  border-top: 1px solid var(--divider);
+  padding-top: 10px;
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--faint);
+}
+
+.platform-card .platform-claim + .platform-status {
+  margin-top: 16px;
+}
+
+.platform-note {
+  margin: 18px auto 0;
+  max-width: 780px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--faint);
+}
+
+.platform-note + .platform-note {
+  margin-top: 8px;
+}
+
+.platform-note code {
+  font-size: 12px;
+}
+
+/* Proxy endpoints: hairline rows, method + monospace path. */
+.endpoint-list {
+  margin-top: 28px;
+  border-top: 1px solid var(--divider);
+}
+
+.endpoint-row {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+  border-bottom: 1px solid var(--divider);
+  padding: 11px 0;
+}
+
+.endpoint-row .endpoint-method {
+  font-family: var(--vp-font-family-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--faint);
+}
+
+.endpoint-row code {
+  border: 0;
+  border-radius: 0;
+  background: none;
+  padding: 0;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.endpoint-row .endpoint-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.proxy-quickstart div[class*="language-"] {
+  margin: 22px 0 0;
+}
+
+.endpoint-note {
+  margin: 16px 0 0;
+  max-width: 720px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--faint);
+}
+
 .card-glyph {
   display: none;
 }
@@ -1577,6 +1748,10 @@ img {
   .workflow-section.reversed .product-frame {
     order: 2;
   }
+
+  .platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 760px) {
@@ -1612,10 +1787,28 @@ img {
   .feature-grid,
   .highlight-grid,
   .image-pair,
+  .platform-grid,
   .path-row,
   .download-hero,
   .notice-grid {
     grid-template-columns: 1fr;
+  }
+
+  .endpoint-row {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 4px 12px;
+  }
+
+  .endpoint-row .endpoint-desc {
+    grid-column: 2;
+  }
+
+  .platform-card {
+    padding: 16px 16px 14px;
+  }
+
+  .platform-note {
+    text-align: left;
   }
 
   .capability-grid article {

@@ -54,7 +54,7 @@ AI Toolkit 的价值在于把“多工具共存”的复杂度压到一个稳定
 
 <section class="doc-band">
   <h2>平台积分与模型连接参数集中可见</h2>
-  <p>连接 WorkBuddy、TRAE CN、Qoder 后，分别查看原生额度与领取状态；在本地代理页复制 Base URL、代理 API Key 和模型 ID，接入支持 OpenAI 或 Anthropic 协议的客户端。</p>
+  <p>连接 WorkBuddy、TRAE、Qoder、MiniMax Code 后，分别查看原生额度与领取状态；在本地代理页复制 Base URL、代理 API Key 和模型 ID，接入支持 OpenAI 或 Anthropic 协议的客户端。</p>
   <div class="image-pair">
     <figure class="screen-frame">
       <img :src="withBase('/screenshots/webp/credits-panel.webp')" alt="账户与积分界面，账号身份信息已打码" width="1800" height="1200" loading="lazy">
