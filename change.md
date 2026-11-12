@@ -12,9 +12,9 @@ import { withBase } from 'vitepress'
 
 <section class="release-gallery">
   <div>
-    <p class="section-label">v2.2.3 release notes</p>
+    <p class="section-label">v2.2.4 release notes</p>
     <h2>Skills、MCP 与积分代理，集中在同一个桌面工作台</h2>
-    <p>当前版本 v2.2.3，提供 Skills 管理、MCP 服务器、积分与代理、更新日志、设置、关于六个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
+    <p>当前版本 v2.2.4，提供 Skills 管理、MCP 服务器、积分与代理、更新日志、设置、关于六个面板。以下配图保留 2026-10-15 从 macOS v2.0.0 实际窗口截取的界面，昵称、账号 ID 等敏感信息已打码；积分和模型状态是当时的账户快照。</p>
   </div>
   <div class="image-pair">
     <figure class="screen-frame">
@@ -43,6 +43,22 @@ import { withBase } from 'vitepress'
     </figure>
   </div>
 </section>
+
+## v2.2.4 (2026-11-12)
+
+### 新功能
+
+- 领取记录新增余额核对，展示领取前余额、首次回查余额及查询时间，相同单位下计算余额净变化，并注明包含同期消费与其他入账。领取前主动查询余额，余额观察记录随账号保存，历史领取记录兼容旧数据。
+
+### 修复与改进
+
+- 自动领取改为逐账户调度，临时故障按 1、2、5、15、30 分钟退避重试，限流遵守上游 `Retry-After`。凭据异常暂停该账户，主动刷新或重新登录后恢复，待确认结果进入回查流程。
+- Messages 工具定义兼容布尔类型的 `eager_input_streaming` 提示，在本地校验并消费，工具参数以完整 JSON 输出。无效类型在转发前返回明确错误。
+
+### 验证与文档
+
+- 补充领取调度、限流、凭据恢复、跨日执行、余额历史持久化和事务回滚回归，以及余额核对组件与 Messages JSON／SSE 工具调用回归。
+- 同步应用版本、Rust 锁文件、中英文 README、代理说明、官网与发布工作流至 v2.2.4。
 
 ## v2.2.3 (2026-11-10)
 
