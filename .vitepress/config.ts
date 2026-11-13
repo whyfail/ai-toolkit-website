@@ -83,6 +83,7 @@ export default defineConfig({
       { text: '下载', link: '/download' },
       { text: '功能', link: '/features' },
       { text: '亮点', link: '/highlights' },
+      { text: 'Codex 指南', link: '/codex-guide' },
       { text: '更新日志', link: '/change' },
     ],
     sidebar: [
@@ -97,6 +98,12 @@ export default defineConfig({
         items: [
           { text: '功能总览', link: '/features' },
           { text: '设计亮点', link: '/highlights' },
+        ],
+      },
+      {
+        text: '接入指南',
+        items: [
+          { text: 'Codex 下载安装指南', link: '/codex-guide' },
         ],
       },
       {
