@@ -79,7 +79,7 @@ const tools = [
 
 <main class="landing-shell">
   <section class="hero" aria-labelledby="hero-title">
-    <p class="hero-badge">v2.2.5 · 四大平台积分 · 本地模型代理 · MCP · SKILLS</p>
+    <p class="hero-badge">v2.2.6 · 四大平台积分 · 本地模型代理 · MCP · SKILLS</p>
     <img class="hero-logo" :src="withBase('/icon-192.png')" alt="AI Toolkit 图标" width="68" height="68">
     <h1 id="hero-title">AI Toolkit</h1>
     <p class="hero-tagline">四大平台积分自动领取，模型经本地代理接入。</p>
